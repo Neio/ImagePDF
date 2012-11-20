@@ -31,7 +31,7 @@
 		AA7ED64C165BB16E00465489 /* libImagePDF.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libImagePDF.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA7ED653165BB38100465489 /* Document.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = Document.cpp; sourceTree = "<group>"; };
 		AA7ED654165BB38100465489 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = Document.h; sourceTree = "<group>"; };
-		AA7ED657165BB3C300465489 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 2; path = README; sourceTree = "<group>"; };
+		AA7ED657165BB3C300465489 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 2; path = README.md; sourceTree = "<group>"; };
 		AA7ED658165BB80100465489 /* Page.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Page.cpp; sourceTree = "<group>"; };
 		AA7ED659165BB80100465489 /* Page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page.h; sourceTree = "<group>"; };
 		AA7ED65C165BC97300465489 /* Stream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stream.cpp; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 			children = (
 				AA7ED66C165BD9BA00465489 /* StreamEncodeProvider.cpp */,
 				AA7ED66D165BD9BA00465489 /* StreamEncodeProvider.h */,
-				AA7ED657165BB3C300465489 /* README */,
+				AA7ED657165BB3C300465489 /* README.md */,
 				AA7ED674165BDA3600465489 /* JPXEncoder.cpp */,
 				AA7ED675165BDA3600465489 /* JPXEncoder.h */,
 				AA7ED670165BD9FE00465489 /* FlateEncoder.cpp */,
