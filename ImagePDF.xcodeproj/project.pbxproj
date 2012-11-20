@@ -6,8 +6,32 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		AA7ED655165BB38100465489 /* Document.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED653165BB38100465489 /* Document.cpp */; };
+		AA7ED656165BB38100465489 /* Document.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED654165BB38100465489 /* Document.h */; };
+		AA7ED65A165BB80100465489 /* Page.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED658165BB80100465489 /* Page.cpp */; };
+		AA7ED65B165BB80100465489 /* Page.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED659165BB80100465489 /* Page.h */; };
+		AA7ED65E165BC97300465489 /* Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED65C165BC97300465489 /* Stream.cpp */; };
+		AA7ED65F165BC97300465489 /* Stream.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED65D165BC97300465489 /* Stream.h */; };
+		AA7ED662165BC98600465489 /* StreamHead.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED660165BC98600465489 /* StreamHead.cpp */; };
+		AA7ED663165BC98600465489 /* StreamHead.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED661165BC98600465489 /* StreamHead.h */; };
+		AA7ED666165BC99D00465489 /* ImageHead.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED664165BC99D00465489 /* ImageHead.cpp */; };
+		AA7ED667165BC99D00465489 /* ImageHead.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED665165BC99D00465489 /* ImageHead.h */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		AA7ED64C165BB16E00465489 /* libImagePDF.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libImagePDF.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA7ED653165BB38100465489 /* Document.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = Document.cpp; sourceTree = "<group>"; };
+		AA7ED654165BB38100465489 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = Document.h; sourceTree = "<group>"; };
+		AA7ED657165BB3C300465489 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 2; path = README; sourceTree = "<group>"; };
+		AA7ED658165BB80100465489 /* Page.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Page.cpp; sourceTree = "<group>"; };
+		AA7ED659165BB80100465489 /* Page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page.h; sourceTree = "<group>"; };
+		AA7ED65C165BC97300465489 /* Stream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stream.cpp; sourceTree = "<group>"; };
+		AA7ED65D165BC97300465489 /* Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stream.h; sourceTree = "<group>"; };
+		AA7ED660165BC98600465489 /* StreamHead.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StreamHead.cpp; sourceTree = "<group>"; };
+		AA7ED661165BC98600465489 /* StreamHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamHead.h; sourceTree = "<group>"; };
+		AA7ED664165BC99D00465489 /* ImageHead.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageHead.cpp; sourceTree = "<group>"; };
+		AA7ED665165BC99D00465489 /* ImageHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHead.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -24,6 +48,17 @@
 		AA7ED641165BB16E00465489 = {
 			isa = PBXGroup;
 			children = (
+				AA7ED657165BB3C300465489 /* README */,
+				AA7ED664165BC99D00465489 /* ImageHead.cpp */,
+				AA7ED665165BC99D00465489 /* ImageHead.h */,
+				AA7ED660165BC98600465489 /* StreamHead.cpp */,
+				AA7ED661165BC98600465489 /* StreamHead.h */,
+				AA7ED65C165BC97300465489 /* Stream.cpp */,
+				AA7ED65D165BC97300465489 /* Stream.h */,
+				AA7ED658165BB80100465489 /* Page.cpp */,
+				AA7ED659165BB80100465489 /* Page.h */,
+				AA7ED653165BB38100465489 /* Document.cpp */,
+				AA7ED654165BB38100465489 /* Document.h */,
 				AA7ED64D165BB16E00465489 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +78,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA7ED656165BB38100465489 /* Document.h in Headers */,
+				AA7ED65B165BB80100465489 /* Page.h in Headers */,
+				AA7ED65F165BC97300465489 /* Stream.h in Headers */,
+				AA7ED663165BC98600465489 /* StreamHead.h in Headers */,
+				AA7ED667165BC99D00465489 /* ImageHead.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +137,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA7ED655165BB38100465489 /* Document.cpp in Sources */,
+				AA7ED65A165BB80100465489 /* Page.cpp in Sources */,
+				AA7ED65E165BC97300465489 /* Stream.cpp in Sources */,
+				AA7ED662165BC98600465489 /* StreamHead.cpp in Sources */,
+				AA7ED666165BC99D00465489 /* ImageHead.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,7 +152,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -136,7 +181,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
