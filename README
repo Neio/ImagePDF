@@ -61,7 +61,9 @@ TRAILER
 
 Classes Relation:
 
-Document  <>---- Page <>----- Stream  <>------ StreamHead
+                        ImageFile (currently jpg file only)
+                         |
+Document  <>---- Page <>-+---- Stream  <>------ StreamHead
                                  |                ^
                                  |                |
                                  |           +------------+

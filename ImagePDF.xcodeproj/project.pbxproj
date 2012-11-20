@@ -17,6 +17,14 @@
 		AA7ED663165BC98600465489 /* StreamHead.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED661165BC98600465489 /* StreamHead.h */; };
 		AA7ED666165BC99D00465489 /* ImageHead.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED664165BC99D00465489 /* ImageHead.cpp */; };
 		AA7ED667165BC99D00465489 /* ImageHead.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED665165BC99D00465489 /* ImageHead.h */; };
+		AA7ED66A165BD90B00465489 /* ImageFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED668165BD90B00465489 /* ImageFile.cpp */; };
+		AA7ED66B165BD90B00465489 /* ImageFile.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED669165BD90B00465489 /* ImageFile.h */; };
+		AA7ED66E165BD9BA00465489 /* StreamEncodeProvider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED66C165BD9BA00465489 /* StreamEncodeProvider.cpp */; };
+		AA7ED66F165BD9BA00465489 /* StreamEncodeProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED66D165BD9BA00465489 /* StreamEncodeProvider.h */; };
+		AA7ED672165BD9FE00465489 /* FlateEncoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED670165BD9FE00465489 /* FlateEncoder.cpp */; };
+		AA7ED673165BD9FE00465489 /* FlateEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED671165BD9FE00465489 /* FlateEncoder.h */; };
+		AA7ED676165BDA3600465489 /* JPXEncoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED674165BDA3600465489 /* JPXEncoder.cpp */; };
+		AA7ED677165BDA3600465489 /* JPXEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED675165BDA3600465489 /* JPXEncoder.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +40,14 @@
 		AA7ED661165BC98600465489 /* StreamHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamHead.h; sourceTree = "<group>"; };
 		AA7ED664165BC99D00465489 /* ImageHead.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageHead.cpp; sourceTree = "<group>"; };
 		AA7ED665165BC99D00465489 /* ImageHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHead.h; sourceTree = "<group>"; };
+		AA7ED668165BD90B00465489 /* ImageFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageFile.cpp; sourceTree = "<group>"; };
+		AA7ED669165BD90B00465489 /* ImageFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFile.h; sourceTree = "<group>"; };
+		AA7ED66C165BD9BA00465489 /* StreamEncodeProvider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StreamEncodeProvider.cpp; sourceTree = "<group>"; };
+		AA7ED66D165BD9BA00465489 /* StreamEncodeProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamEncodeProvider.h; sourceTree = "<group>"; };
+		AA7ED670165BD9FE00465489 /* FlateEncoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlateEncoder.cpp; sourceTree = "<group>"; };
+		AA7ED671165BD9FE00465489 /* FlateEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlateEncoder.h; sourceTree = "<group>"; };
+		AA7ED674165BDA3600465489 /* JPXEncoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JPXEncoder.cpp; sourceTree = "<group>"; };
+		AA7ED675165BDA3600465489 /* JPXEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPXEncoder.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +64,15 @@
 		AA7ED641165BB16E00465489 = {
 			isa = PBXGroup;
 			children = (
+				AA7ED66C165BD9BA00465489 /* StreamEncodeProvider.cpp */,
+				AA7ED66D165BD9BA00465489 /* StreamEncodeProvider.h */,
 				AA7ED657165BB3C300465489 /* README */,
+				AA7ED674165BDA3600465489 /* JPXEncoder.cpp */,
+				AA7ED675165BDA3600465489 /* JPXEncoder.h */,
+				AA7ED670165BD9FE00465489 /* FlateEncoder.cpp */,
+				AA7ED671165BD9FE00465489 /* FlateEncoder.h */,
+				AA7ED668165BD90B00465489 /* ImageFile.cpp */,
+				AA7ED669165BD90B00465489 /* ImageFile.h */,
 				AA7ED664165BC99D00465489 /* ImageHead.cpp */,
 				AA7ED665165BC99D00465489 /* ImageHead.h */,
 				AA7ED660165BC98600465489 /* StreamHead.cpp */,
@@ -83,6 +107,10 @@
 				AA7ED65F165BC97300465489 /* Stream.h in Headers */,
 				AA7ED663165BC98600465489 /* StreamHead.h in Headers */,
 				AA7ED667165BC99D00465489 /* ImageHead.h in Headers */,
+				AA7ED66B165BD90B00465489 /* ImageFile.h in Headers */,
+				AA7ED66F165BD9BA00465489 /* StreamEncodeProvider.h in Headers */,
+				AA7ED673165BD9FE00465489 /* FlateEncoder.h in Headers */,
+				AA7ED677165BDA3600465489 /* JPXEncoder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +170,10 @@
 				AA7ED65E165BC97300465489 /* Stream.cpp in Sources */,
 				AA7ED662165BC98600465489 /* StreamHead.cpp in Sources */,
 				AA7ED666165BC99D00465489 /* ImageHead.cpp in Sources */,
+				AA7ED66A165BD90B00465489 /* ImageFile.cpp in Sources */,
+				AA7ED66E165BD9BA00465489 /* StreamEncodeProvider.cpp in Sources */,
+				AA7ED672165BD9FE00465489 /* FlateEncoder.cpp in Sources */,
+				AA7ED676165BDA3600465489 /* JPXEncoder.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

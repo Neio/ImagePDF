@@ -13,6 +13,7 @@
 #include <string>
 #include "Stream.h"
 #include "StreamHead.h"
+#include "ImageFile.h"
 #include <vector>
 
 using namespace std;
@@ -32,12 +33,17 @@ namespace PDF
         int Write(bool data);
         int Write(string& data);
         
+        
+        int Write(ImageFile& imageFile);
+        
         Stream* StartStream(StreamHead& header);
         
         
     private:
-        int _id;
-        vector<int> _children;
+        
+        int _id;  //page id
+        
+        vector<int> _children; //children ids
         
     private:
         Stream* currentStream;
