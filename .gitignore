@@ -11,3 +11,4 @@ build/
 *.perspective
 *.perspectivev3
 *.xcuserstate
+xcuserdata
