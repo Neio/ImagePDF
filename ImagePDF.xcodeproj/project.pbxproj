@@ -48,6 +48,7 @@
 		AA7ED671165BD9FE00465489 /* FlateEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlateEncoder.h; sourceTree = "<group>"; };
 		AA7ED674165BDA3600465489 /* JPXEncoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JPXEncoder.cpp; sourceTree = "<group>"; };
 		AA7ED675165BDA3600465489 /* JPXEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPXEncoder.h; sourceTree = "<group>"; };
+		AA7ED678165BDBFC00465489 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +65,7 @@
 		AA7ED641165BB16E00465489 = {
 			isa = PBXGroup;
 			children = (
+				AA7ED678165BDBFC00465489 /* .gitignore */,
 				AA7ED66C165BD9BA00465489 /* StreamEncodeProvider.cpp */,
 				AA7ED66D165BD9BA00465489 /* StreamEncodeProvider.h */,
 				AA7ED657165BB3C300465489 /* README.md */,
