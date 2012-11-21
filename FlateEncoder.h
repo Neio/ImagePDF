@@ -28,7 +28,7 @@ using namespace std;
 
 namespace PDF
 {
-    class FlateEncoder: StreamEncodeProvider
+    class FlateEncoder: public StreamEncodeProvider
     {
     public:
         virtual string getName();

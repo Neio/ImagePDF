@@ -33,7 +33,7 @@ Page::Page(Document& doc){
 }
 void Page::End(){
 	//TODO save page content info, which describe how to print the page
-	ofstream& f = *(this->doc->_file);
+	ostream& f = *(this->doc->_file);
 
 	/*
 	23 0 obj					% Contents of page
@@ -50,9 +50,14 @@ void Page::End(){
 	endobj
 	*/
 	this->_pageContentId = doc->_address->size();
-	doc->_address->push_back(f.tellp());//add page id
+
+	long location = (long)f.tellp();
+	doc->_address->push_back(location);//add page id
+
 	f<<_pageContentId<<" 0 obj"<<endl;
 	f<<"<< /Length "<<(_pageContentId + 1)<<" 0 R >>"<<endl;
+
+
 	f<<"stream"<<endl;
 	long sizecountStart = f.tellp();
 	for(vector<StreamHead*>::iterator j = heads->begin();
@@ -89,20 +94,23 @@ vector<StreamHead*>* Page::getResources(){
 	return heads;
 }
 
-Stream* Page::StartStream(StreamHead& header,
-	StreamEncodeProvider& Provider){
+Stream* Page::StartStream(StreamHead* header,
+	StreamEncodeProvider* Provider){
 		
-	Provider.setOstream(doc->_file);
-	currentStream = new Stream(this, &Provider);
-	currentStreamHead = &header;
+	Provider->setOstream(doc->_file);
+	header->provider = Provider;
+	currentStream = new Stream(this, Provider);
+	currentStreamHead = header;
 	int objectId = doc->_address->size();
-	header.WriteXObjectHead(objectId, doc->_file);
+	doc->_address->push_back(doc->_file->tellp());
+	header->WriteXObjectHead(objectId, doc->_file);
 	return currentStream;
 
 }
 
 void Page::closeSteram(){
-	currentStreamHead->WriteXObjectTail(doc->_file);
+	long newid = currentStreamHead->WriteXObjectTail(doc->_file);
+	doc->_address->push_back(newid);
 	if(currentStream != NULL){
 		delete currentStream;
 		currentStream = NULL;

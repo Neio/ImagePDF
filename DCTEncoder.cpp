@@ -21,23 +21,28 @@
 using namespace PDF;
 using namespace std;
 
-string DCTEncoder::getName(){
+string DCTEncoder::getName()
+{
 	return "DCTDecode";
 }
 
 
-void DCTEncoder::Begin(){
+void DCTEncoder::Begin()
+{
 	//prepare space & file
+
 }
 
 
-void DCTEncoder::WriteData(char* data, int length){
+void DCTEncoder::WriteData(char* data, int length)
+{
 	//write data
 
 }
 
 
-void DCTEncoder::End(){
+void DCTEncoder::End()
+{
 	//clean up
 
 }

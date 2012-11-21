@@ -52,7 +52,7 @@ namespace PDF
         
         int Write(ImageFile& imageFile);
         
-        Stream* StartStream(StreamHead& header, StreamEncodeProvider& Provider);
+        Stream* StartStream(StreamHead* header, StreamEncodeProvider* Provider);
 
         
 

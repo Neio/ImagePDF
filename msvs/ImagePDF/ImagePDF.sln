@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImagePDF", "ImagePDF.vcxproj", "{C9879880-C6DD-450F-A14D-4D2DA1E43F06}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "..\Test\Test.vcxproj", "{53CB08CE-43DF-429F-9FF0-43C5EBBA9FDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +15,10 @@ Global
 		{C9879880-C6DD-450F-A14D-4D2DA1E43F06}.Debug|Win32.Build.0 = Debug|Win32
 		{C9879880-C6DD-450F-A14D-4D2DA1E43F06}.Release|Win32.ActiveCfg = Release|Win32
 		{C9879880-C6DD-450F-A14D-4D2DA1E43F06}.Release|Win32.Build.0 = Release|Win32
+		{53CB08CE-43DF-429F-9FF0-43C5EBBA9FDE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{53CB08CE-43DF-429F-9FF0-43C5EBBA9FDE}.Debug|Win32.Build.0 = Debug|Win32
+		{53CB08CE-43DF-429F-9FF0-43C5EBBA9FDE}.Release|Win32.ActiveCfg = Release|Win32
+		{53CB08CE-43DF-429F-9FF0-43C5EBBA9FDE}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

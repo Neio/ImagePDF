@@ -28,7 +28,7 @@ using namespace std;
 
 namespace PDF
 {
-    class DCTEncoder: StreamEncodeProvider
+    class DCTEncoder:  public StreamEncodeProvider
     {
     public:
         virtual string getName();

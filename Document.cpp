@@ -43,7 +43,9 @@ namespace PDF{
 		//write PDF head
 		ofstream& f = *(this->_file);
 		long position = f.tellp();
-		f<<"%PDF 1.7"<<endl;
+		f<<"%PDF 1.6"<<endl;
+
+		_address->push_back(0);
 
 		//set flag
 		this->_opened = true;
@@ -208,8 +210,12 @@ namespace PDF{
 			i++)
 		{
 			//output address
-			f.width(10);  
-			f<<*i<<" 00000 n"<<endl;
+			f.width(10); 
+			f.fill('0');
+			if( (*i)== 0)
+				f<<0<<" 65535 f"<<endl;
+			else
+				f<<*i<<" 00000 n"<<endl;
 		}
 
 		//trailer
@@ -227,7 +233,7 @@ namespace PDF{
 		long trailerLocation = f.tellp();
 		f<<"trailer"<<endl;
 		f<<"<< /Size "<<xrefSize <<endl; //object sizes
-		f<<"<< /Root "<<catId <<" 0 R"<<endl; //catalog reference
+		f<<" /Root "<<catId <<" 0 R"<<endl; //catalog reference
 		f<<">>"<<endl;
 		f<<"startxref"<<endl;
 		f<<xrefLocation<<endl;

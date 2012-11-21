@@ -22,6 +22,7 @@
 
 #include <iostream>
 #include <string>
+#include "StreamEncodeProvider.h"
 using namespace std;
 
 namespace PDF
@@ -35,11 +36,13 @@ namespace PDF
 		virtual int getResourceId()=0;
 		virtual string getName()=0;
 
-	private:
+	protected:
 		virtual void WriteContent(ostream* file) = 0; 
 		virtual void WriteXObjectHead(int objectId, ostream* file) = 0;
-		virtual void WriteXObjectTail(ostream* file) = 0;
+		virtual int WriteXObjectTail(ostream* file) = 0;
 		friend class Page;
+
+		StreamEncodeProvider* provider;
     };
 }
 

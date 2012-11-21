@@ -50,19 +50,18 @@ namespace PDF
 	};
 
 	extern class Page;
-    class ImageHead :StreamHead
+    class ImageHead : public StreamHead
     {
 	public:
 		ImageHead(int X, int Y, int Width, int Height,
-			ColorSpace colorspace, int BitPerComponent,
-			StreamEncodeProvider& provider);
+			ColorSpace colorspace, int BitPerComponent);
 		virtual int getResourceId();
 		virtual string getName();
 
-	private:
+	protected:
 		virtual void WriteContent(ostream* file);
 		virtual void WriteXObjectHead(int objectId, ostream* file);
-		virtual void WriteXObjectTail(ostream* file);
+		virtual int WriteXObjectTail(ostream* file);
 
 		friend class Page;
 
@@ -72,7 +71,7 @@ namespace PDF
 		int width;
 		int height;
 		ColorSpace colorSpace;
-		StreamEncodeProvider* provider;
+		
 		int bit;
 
 		int id;

@@ -44,13 +44,12 @@ string ImageHead::getName(){
 }
 
 ImageHead::ImageHead(int X, int Y, int Width, int Height, 
-	ColorSpace colorspace,int BitPerComponent, StreamEncodeProvider& provider){
+	ColorSpace colorspace,int BitPerComponent){
 	this->x = X;
 	this->y = Y;
 	this->width = Width;
 	this->height = Height;
-	this->colorSpace = colorSpace;
-	this->provider = &provider;
+	this->colorSpace = colorspace;
 	this->bit = BitPerComponent;
 	nameId = nameCounting ++;
 }
@@ -102,9 +101,12 @@ void ImageHead::WriteXObjectHead(int objectId, ostream* file){
 		f<<"DeviceGray"<<endl;
 	else if(this->colorSpace == DeviceN)
 		f<<"DeviceN"<<endl;
+	else
+		f<<"DeviceN"<<endl;
+
 	f<<"/BitsPerComponent "<<this->bit<<endl;
 	f<<"/Length "<<(objectId +1)<<" 0 R"<<endl;
-	f<<"/Filter "<<provider->getName()<<endl;
+	f<<"/Filter /"<<provider->getName()<<endl;
 	f<<">>"<<endl;
 	f<<"stream"<<endl;
 	this->streamStart = f.tellp();
@@ -113,15 +115,19 @@ void ImageHead::WriteXObjectHead(int objectId, ostream* file){
 	//f<<"endobj"<<endl;
 }
 
-void ImageHead::WriteXObjectTail(ostream* file){
+int ImageHead::WriteXObjectTail(ostream* file){
 
 	ostream& f = *(file);
 
 	long size = (long)f.tellp() - this->streamStart;
-	f<<"endstream"<<endl;
+	f<<endl<<"endstream"<<endl;
 	f<<"endobj"<<endl;
+
+	long newid = (long)f.tellp();
 
 	f<<(id+1)<<" 0 obj"<<endl;
 	f<<size<<endl;
 	f<<"endobj"<<endl;
+
+	return newid;
 }
