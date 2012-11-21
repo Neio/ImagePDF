@@ -50,9 +50,9 @@ void Page::End(){
 	endobj
 	*/
     
-    if(heads->size() ==0)
-        this->_pageContentId = -1;
-    else{
+    //if(heads->size() ==0)
+    //    this->_pageContentId = -1;
+    //else{
     
 	this->_pageContentId = doc->_address->size();
 
@@ -78,7 +78,7 @@ void Page::End(){
 	int sizeId = doc->_address->size();
 	doc->_address->push_back(f.tellp());
 	f<<sizeId<<" 0 obj"<<endl<<sizecount<<endl<<"endobj"<<endl;
-    }
+    //}
 }
 
 void Page::setWidth(int Width){
@@ -110,6 +110,7 @@ Stream* Page::StartStream(StreamHead* header,
 	int objectId = doc->_address->size();
 	doc->_address->push_back(doc->_file->tellp());
 	header->WriteXObjectHead(objectId, doc->_file);
+    heads->push_back(header);
 	return currentStream;
 
 }

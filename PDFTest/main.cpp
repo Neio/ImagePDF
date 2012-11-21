@@ -31,11 +31,13 @@ int main(int argc, const char * argv[])
 	
     
     ImageHead* header = new ImageHead(
-                           0,0,10,1, PDF::DeviceRGB,8);
+                           10,10,10,10, PDF::DeviceRGB,8);
 	FlateEncoder* encoder = new FlateEncoder();
 	Stream* s =  page->StartStream(header, encoder);
-	char data[]= "Hello World";
-	s->WriteData(data, 10);
+    const int size = 10 * 10 * 3;
+	char data[size];
+    memset(data, 0xEE ,size);
+	s->WriteData(data, size);
 	s->End();
     
     
