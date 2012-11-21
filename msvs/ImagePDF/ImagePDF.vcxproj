@@ -68,7 +68,6 @@
     <ClCompile Include="..\..\Page.cpp" />
     <ClCompile Include="..\..\Stream.cpp" />
     <ClCompile Include="..\..\StreamEncodeProvider.cpp" />
-    <ClCompile Include="..\..\StreamHead.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Document.h" />

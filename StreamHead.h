@@ -21,8 +21,8 @@ namespace PDF
     class StreamHead
     {
 	public:
-		int getResourceId();
-		string getName();
+		virtual int getResourceId()=0;
+		virtual string getName()=0;
 
 	private:
 		virtual void WriteContent(ostream* file) = 0; 

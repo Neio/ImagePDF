@@ -45,6 +45,8 @@ namespace PDF
 		ImageHead(int X, int Y, int Width, int Height,
 			ColorSpace colorspace, int BitPerComponent,
 			StreamEncodeProvider& provider);
+		virtual int getResourceId();
+		virtual string getName();
 
 	private:
 		virtual void WriteContent(ostream* file);
@@ -64,6 +66,8 @@ namespace PDF
 
 		int id;
 		long streamStart;
+
+		int nameId;
     };
 
 }

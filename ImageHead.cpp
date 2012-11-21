@@ -11,9 +11,25 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <sstream>
 
 using namespace PDF;
 using namespace std;
+
+static int nameCounting = 1;
+static string constName = "im";
+
+int ImageHead::getResourceId(){
+	return id;
+}
+
+
+string ImageHead::getName(){
+	stringstream ss;
+	ss<<constName;
+	ss<<this->nameId;
+	return ss.str();
+}
 
 ImageHead::ImageHead(int X, int Y, int Width, int Height, 
 	ColorSpace colorspace,int BitPerComponent, StreamEncodeProvider& provider){
@@ -24,6 +40,7 @@ ImageHead::ImageHead(int X, int Y, int Width, int Height,
 	this->colorSpace = colorSpace;
 	this->provider = &provider;
 	this->bit = BitPerComponent;
+	nameId = nameCounting ++;
 }
 
 //write page content

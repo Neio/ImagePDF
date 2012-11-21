@@ -47,7 +47,12 @@ namespace PDF{
 
 		if(_pages != NULL)
 		{
-			//TODO delete pages
+			//delete pages
+			for(vector<Page*>::iterator i = this->_pages->begin();
+				i != _pages->end();
+				i++){
+					delete *i;
+			}
 
 			delete this->_pages;
 			this->_pages = NULL;
@@ -222,6 +227,9 @@ namespace PDF{
 		f.close();
 		delete this->_file;
 		this->_file = NULL;
+
+
+		//clean
 
 
 		return true;
