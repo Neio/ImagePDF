@@ -64,7 +64,7 @@
     <ClCompile Include="..\..\FlateEncoder.cpp" />
     <ClCompile Include="..\..\ImageFile.cpp" />
     <ClCompile Include="..\..\ImageHead.cpp" />
-    <ClCompile Include="..\..\JPXEncoder.cpp" />
+    <ClCompile Include="..\..\DCTEncoder.cpp" />
     <ClCompile Include="..\..\Page.cpp" />
     <ClCompile Include="..\..\Stream.cpp" />
     <ClCompile Include="..\..\StreamEncodeProvider.cpp" />
@@ -74,7 +74,7 @@
     <ClInclude Include="..\..\FlateEncoder.h" />
     <ClInclude Include="..\..\ImageFile.h" />
     <ClInclude Include="..\..\ImageHead.h" />
-    <ClInclude Include="..\..\JPXEncoder.h" />
+    <ClInclude Include="..\..\DCTEncoder.h" />
     <ClInclude Include="..\..\Page.h" />
     <ClInclude Include="..\..\Stream.h" />
     <ClInclude Include="..\..\StreamEncodeProvider.h" />

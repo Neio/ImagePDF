@@ -18,3 +18,26 @@
    limitations under the License.
 */
 #include "FlateEncoder.h"
+using namespace PDF;
+using namespace std;
+
+string FlateEncoder::getName(){
+	return "FlateDecode";
+}
+
+
+void FlateEncoder::Begin(){
+	//DO nothing
+}
+
+
+void FlateEncoder::WriteData(char* data, int length){
+	//write data
+
+}
+
+
+void FlateEncoder::End(){
+	//clean up
+
+}

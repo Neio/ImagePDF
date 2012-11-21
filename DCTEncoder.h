@@ -28,10 +28,13 @@ using namespace std;
 
 namespace PDF
 {
-    class JPXEncoder: StreamEncodeProvider
+    class DCTEncoder: StreamEncodeProvider
     {
     public:
-        
+        virtual string getName();
+		virtual void Begin();
+		virtual void WriteData(char* data, int length);
+        virtual void End();
         
     };
     

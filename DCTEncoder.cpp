@@ -17,4 +17,27 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-#include "JPXEncoder.h"
+#include "DCTEncoder.h"
+using namespace PDF;
+using namespace std;
+
+string DCTEncoder::getName(){
+	return "DCTDecode";
+}
+
+
+void DCTEncoder::Begin(){
+	//prepare space & file
+}
+
+
+void DCTEncoder::WriteData(char* data, int length){
+	//write data
+
+}
+
+
+void DCTEncoder::End(){
+	//clean up
+
+}
