@@ -38,12 +38,12 @@ namespace PDF{
 
 		//init
 		_pages = new vector<Page*>();
-		_address = new vector<long>();
+		_address = new vector<long long>();
 
 		//write PDF head
 		ofstream& f = *(this->_file);
-		long position = f.tellp();
-		f<<"%PDF 1.6"<<endl;
+		//long position = f.tellp();
+		f<<"%PDF-1.6"<<endl;
 
 		_address->push_back(0);
 
@@ -111,7 +111,7 @@ namespace PDF{
 		endobj
 		*/
 		int pagesId = _address->size();
-		long pagesLocation = f.tellp();
+		long long pagesLocation = f.tellp();
 		_address->push_back(pagesLocation);
 		f<<pagesId<<" 0 obj"<<endl;
 		f<<"<< /Type /Pages"<<endl;
@@ -131,7 +131,7 @@ namespace PDF{
 			i != _pages->end();
 			i++){
 				int currentPageId = _address->size();
-				long pageLocation = f.tellp();
+				long long pageLocation = f.tellp();
 				_address->push_back(pageLocation);
 				f<<currentPageId<<" 0 obj"<<endl<<"<< /Type /Page"<<endl;
 				//page content
@@ -150,8 +150,9 @@ namespace PDF{
 				*/
 				f<<"/Parent "<<pagesId<<" 0 R"<<endl;
 				f<<"/MediaBox [0 0 "<<(*i)->getWidth()<<" "<<(*i)->getHeight()<<"]"<<endl;
-				f<<"/Resources <</ProcSet [/PDF /ImageB]"<<endl;
-					f<<"/XObject << ";
+                f<<"/Resources <<"<<endl;
+                f<<"             /ProcSet [/PDF /ImageB /ImageC]"<<endl;
+                f<<"             /XObject << ";
 						//write image xobjects
 						vector<StreamHead*>* pageRes = (*i)->getResources();
 						for(vector<StreamHead*>::iterator j = pageRes->begin();
@@ -163,8 +164,10 @@ namespace PDF{
 						}
 					f<<">>"<<endl;
 				f<<">>"<<endl;
-				//write page content
-				f<<"/Contents "<<(*i)->getContentId()<<" 0 R"<<endl;
+				//write page content if there are contents
+                if((*i)->getContentId() >0){
+                    f<<"/Contents "<<(*i)->getContentId()<<" 0 R"<<endl;
+                }
 				f<<">>"<<endl<<"endobj"<<endl;
 
 		}
@@ -180,12 +183,12 @@ namespace PDF{
 		endobj
 		*/
 		int catId = _address->size();
-		long catLocation = f.tellp();
+		long long catLocation = f.tellp();
 		_address->push_back(catLocation);
 		f<<catId<<" 0 obj"<<endl;
-		f<<"<< /Type /Catalog"<<endl;
-		f<<"/Pages "<<pagesId<<" 0 R"<<endl;
-		f<<"/PageMode /UseNone"<<endl;
+		f<<"<<"<<endl;
+        f<<" /Type /Catalog"<<endl;
+		f<<" /Pages "<<pagesId<<" 0 R"<<endl;
 		f<<">>"<<endl;
 		f<<"endobj"<<endl;
 
@@ -201,11 +204,11 @@ namespace PDF{
 		0000000409 00000 n
 		*/
 		
-		long xrefLocation = f.tellp();
+		long long xrefLocation = f.tellp();
 		long xrefSize = _address->size();
 		f<<"xref"<<endl;
 		f<<"0 "<<xrefSize<<endl;
-		for(vector<long>::iterator i = this->_address->begin();
+		for(vector<long long>::iterator i = this->_address->begin();
 			i != _address->end(); 
 			i++)
 		{
@@ -213,9 +216,9 @@ namespace PDF{
 			f.width(10); 
 			f.fill('0');
 			if( (*i)== 0)
-				f<<0<<" 65535 f"<<endl;
+				f<<0<<" 65535 f\r\n";
 			else
-				f<<*i<<" 00000 n"<<endl;
+				f<<*i<<" 00000 n\r\n";
 		}
 
 		//trailer
@@ -230,10 +233,10 @@ namespace PDF{
 		%%EOF
 		*/
 
-		long trailerLocation = f.tellp();
+		//long long trailerLocation = f.tellp();
 		f<<"trailer"<<endl;
 		f<<"<< /Size "<<xrefSize <<endl; //object sizes
-		f<<" /Root "<<catId <<" 0 R"<<endl; //catalog reference
+		f<<"   /Root "<<catId <<" 0 R"<<endl; //catalog reference
 		f<<">>"<<endl;
 		f<<"startxref"<<endl;
 		f<<xrefLocation<<endl;

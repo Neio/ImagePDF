@@ -20,11 +20,13 @@
 #include "FlateEncoder.h"
 #include <string>
 #include <iostream>
-#include "zlib\zipstream.hpp"
-#include "zlib\zlib.h"
+
+ //   #include "zlib/zipstream.hpp"
+    #include "zlib/zlib.h"
 
 
-using namespace zlib_stream;
+
+//using namespace zlib_stream;
 
 using namespace PDF;
 using namespace std;
@@ -84,12 +86,12 @@ void FlateEncoder::Begin(){
 void FlateEncoder::WriteData(char* data, int length){
 	//write data
 	
-	this->output->write(data, length);
+	//this->output->write(data, length);
 	//zipper->write(data, length);
-	//if(gzcompress((Bytef *)data, length, zdata, &nzdata) == 0)
-	//{
-	//	this->output->write((char*)zdata, nzdata);
-	//}
+	if(gzcompress((Bytef *)data, length, zdata, &nzdata) == 0)
+	{
+		this->output->write((char*)zdata, nzdata);
+	}
 }
 
 

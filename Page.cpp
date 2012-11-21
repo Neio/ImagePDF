@@ -49,6 +49,11 @@ void Page::End(){
 	33
 	endobj
 	*/
+    
+    if(heads->size() ==0)
+        this->_pageContentId = -1;
+    else{
+    
 	this->_pageContentId = doc->_address->size();
 
 	long location = (long)f.tellp();
@@ -73,6 +78,7 @@ void Page::End(){
 	int sizeId = doc->_address->size();
 	doc->_address->push_back(f.tellp());
 	f<<sizeId<<" 0 obj"<<endl<<sizecount<<endl<<"endobj"<<endl;
+    }
 }
 
 void Page::setWidth(int Width){

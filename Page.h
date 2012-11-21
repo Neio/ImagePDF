@@ -33,7 +33,7 @@ using namespace std;
 
 namespace PDF
 {
-	extern class Document;
+    class Document;
 
     class Page
     {
@@ -65,7 +65,7 @@ namespace PDF
         
     private:
         
-		int _pageContentId;
+		size_t _pageContentId;
         
         vector<int> _children; //children ids
         

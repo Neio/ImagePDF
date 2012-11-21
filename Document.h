@@ -67,7 +67,7 @@ private:
     vector<Page*>* _pages;
     
     //object reference
-    vector<long>* _address;
+    vector<long long>* _address;
     
     void closePage();
 

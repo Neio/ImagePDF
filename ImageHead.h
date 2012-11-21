@@ -49,7 +49,7 @@ namespace PDF
 			
 	};
 
-	extern class Page;
+    class Page;
     class ImageHead : public StreamHead
     {
 	public:
@@ -75,7 +75,7 @@ namespace PDF
 		int bit;
 
 		int id;
-		long streamStart;
+		long long streamStart;
 
 		int nameId;
     };

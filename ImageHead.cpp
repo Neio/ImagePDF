@@ -119,7 +119,7 @@ int ImageHead::WriteXObjectTail(ostream* file){
 
 	ostream& f = *(file);
 
-	long size = (long)f.tellp() - this->streamStart;
+	long long size = f.tellp() - this->streamStart;
 	f<<endl<<"endstream"<<endl;
 	f<<"endobj"<<endl;
 

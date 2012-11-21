@@ -51,21 +51,13 @@ StreamEncodeProvider encoder = new FlateEncoder();
 
 Stream* stream = page->StartStream(sHead, encoder);
 
-stream.Write(data1);
-stream.Write(data2);
+stream->Write(data1, length1);
+stream->Write(data2, length2);
 
-stream.End();
-
-
-
-//get next id
-
-int nextid = page->getNextId();
-
+stream->End();
 
 
 //finish one page
-
 page->End();
 
 
@@ -98,12 +90,12 @@ TRAILER
                         ImageFile (currently jpg file only)
                          |
 Document  <>---- Page <>-+---- Stream  <>------ StreamHead
-                                 |                ^
+                                 <>                ^
                                  |                |
                                  |           +------------+
                                  |           |            |
                                  |       ImageHead     OtherHead
-                                \ /
+                                 |
                      StreamEncodeProvider
 								^
 								|

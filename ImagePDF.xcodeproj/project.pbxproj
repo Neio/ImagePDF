@@ -13,7 +13,6 @@
 		AA7ED65B165BB80100465489 /* Page.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED659165BB80100465489 /* Page.h */; };
 		AA7ED65E165BC97300465489 /* Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED65C165BC97300465489 /* Stream.cpp */; };
 		AA7ED65F165BC97300465489 /* Stream.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED65D165BC97300465489 /* Stream.h */; };
-		AA7ED662165BC98600465489 /* StreamHead.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED660165BC98600465489 /* StreamHead.cpp */; };
 		AA7ED663165BC98600465489 /* StreamHead.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED661165BC98600465489 /* StreamHead.h */; };
 		AA7ED666165BC99D00465489 /* ImageHead.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED664165BC99D00465489 /* ImageHead.cpp */; };
 		AA7ED667165BC99D00465489 /* ImageHead.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED665165BC99D00465489 /* ImageHead.h */; };
@@ -23,9 +22,33 @@
 		AA7ED66F165BD9BA00465489 /* StreamEncodeProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED66D165BD9BA00465489 /* StreamEncodeProvider.h */; };
 		AA7ED672165BD9FE00465489 /* FlateEncoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED670165BD9FE00465489 /* FlateEncoder.cpp */; };
 		AA7ED673165BD9FE00465489 /* FlateEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED671165BD9FE00465489 /* FlateEncoder.h */; };
-		AA7ED676165BDA3600465489 /* JPXEncoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED674165BDA3600465489 /* JPXEncoder.cpp */; };
-		AA7ED677165BDA3600465489 /* JPXEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED675165BDA3600465489 /* JPXEncoder.h */; };
+		AA7ED67B165CFC3000465489 /* DCTEncoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED679165CFC3000465489 /* DCTEncoder.cpp */; };
+		AA7ED67C165CFC3000465489 /* DCTEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED67A165CFC3000465489 /* DCTEncoder.h */; };
+		AA7ED6B1165D028500465489 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED6B0165D028500465489 /* main.cpp */; };
+		AA7ED6B3165D028500465489 /* PDFTest.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA7ED6B2165D028500465489 /* PDFTest.1 */; };
+		AA7ED6B8165D0F0000465489 /* DCTEncoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED679165CFC3000465489 /* DCTEncoder.cpp */; };
+		AA7ED6B9165D0F0900465489 /* StreamEncodeProvider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED66C165BD9BA00465489 /* StreamEncodeProvider.cpp */; };
+		AA7ED6BA165D0F0D00465489 /* FlateEncoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED670165BD9FE00465489 /* FlateEncoder.cpp */; };
+		AA7ED6BB165D0F1000465489 /* ImageFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED668165BD90B00465489 /* ImageFile.cpp */; };
+		AA7ED6BC165D0F1300465489 /* ImageHead.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED664165BC99D00465489 /* ImageHead.cpp */; };
+		AA7ED6BD165D0F1700465489 /* Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED65C165BC97300465489 /* Stream.cpp */; };
+		AA7ED6BE165D0F1A00465489 /* Page.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED658165BB80100465489 /* Page.cpp */; };
+		AA7ED6BF165D0F1D00465489 /* Document.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED653165BB38100465489 /* Document.cpp */; };
+		AA7ED6CA165D143500465489 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7ED6C9165D143500465489 /* libz.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AA7ED6AB165D028400465489 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				AA7ED6B3165D028500465489 /* PDFTest.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AA7ED64C165BB16E00465489 /* libImagePDF.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libImagePDF.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,7 +59,6 @@
 		AA7ED659165BB80100465489 /* Page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page.h; sourceTree = "<group>"; };
 		AA7ED65C165BC97300465489 /* Stream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stream.cpp; sourceTree = "<group>"; };
 		AA7ED65D165BC97300465489 /* Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stream.h; sourceTree = "<group>"; };
-		AA7ED660165BC98600465489 /* StreamHead.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StreamHead.cpp; sourceTree = "<group>"; };
 		AA7ED661165BC98600465489 /* StreamHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamHead.h; sourceTree = "<group>"; };
 		AA7ED664165BC99D00465489 /* ImageHead.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageHead.cpp; sourceTree = "<group>"; };
 		AA7ED665165BC99D00465489 /* ImageHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHead.h; sourceTree = "<group>"; };
@@ -46,9 +68,13 @@
 		AA7ED66D165BD9BA00465489 /* StreamEncodeProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamEncodeProvider.h; sourceTree = "<group>"; };
 		AA7ED670165BD9FE00465489 /* FlateEncoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlateEncoder.cpp; sourceTree = "<group>"; };
 		AA7ED671165BD9FE00465489 /* FlateEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlateEncoder.h; sourceTree = "<group>"; };
-		AA7ED674165BDA3600465489 /* JPXEncoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JPXEncoder.cpp; sourceTree = "<group>"; };
-		AA7ED675165BDA3600465489 /* JPXEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPXEncoder.h; sourceTree = "<group>"; };
 		AA7ED678165BDBFC00465489 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		AA7ED679165CFC3000465489 /* DCTEncoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DCTEncoder.cpp; sourceTree = "<group>"; };
+		AA7ED67A165CFC3000465489 /* DCTEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTEncoder.h; sourceTree = "<group>"; };
+		AA7ED6AD165D028400465489 /* PDFTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PDFTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA7ED6B0165D028500465489 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		AA7ED6B2165D028500465489 /* PDFTest.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = PDFTest.1; sourceTree = "<group>"; };
+		AA7ED6C9165D143500465489 /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = zlib/libz.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,25 +85,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA7ED6AA165D028400465489 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA7ED6CA165D143500465489 /* libz.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		AA7ED641165BB16E00465489 = {
 			isa = PBXGroup;
 			children = (
+				AA7ED6C9165D143500465489 /* libz.a */,
+				AA7ED679165CFC3000465489 /* DCTEncoder.cpp */,
+				AA7ED67A165CFC3000465489 /* DCTEncoder.h */,
 				AA7ED678165BDBFC00465489 /* .gitignore */,
 				AA7ED66C165BD9BA00465489 /* StreamEncodeProvider.cpp */,
 				AA7ED66D165BD9BA00465489 /* StreamEncodeProvider.h */,
 				AA7ED657165BB3C300465489 /* README.md */,
-				AA7ED674165BDA3600465489 /* JPXEncoder.cpp */,
-				AA7ED675165BDA3600465489 /* JPXEncoder.h */,
 				AA7ED670165BD9FE00465489 /* FlateEncoder.cpp */,
 				AA7ED671165BD9FE00465489 /* FlateEncoder.h */,
 				AA7ED668165BD90B00465489 /* ImageFile.cpp */,
 				AA7ED669165BD90B00465489 /* ImageFile.h */,
 				AA7ED664165BC99D00465489 /* ImageHead.cpp */,
 				AA7ED665165BC99D00465489 /* ImageHead.h */,
-				AA7ED660165BC98600465489 /* StreamHead.cpp */,
 				AA7ED661165BC98600465489 /* StreamHead.h */,
 				AA7ED65C165BC97300465489 /* Stream.cpp */,
 				AA7ED65D165BC97300465489 /* Stream.h */,
@@ -85,6 +119,7 @@
 				AA7ED659165BB80100465489 /* Page.h */,
 				AA7ED653165BB38100465489 /* Document.cpp */,
 				AA7ED654165BB38100465489 /* Document.h */,
+				AA7ED6AF165D028500465489 /* PDFTest */,
 				AA7ED64D165BB16E00465489 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,8 +128,18 @@
 			isa = PBXGroup;
 			children = (
 				AA7ED64C165BB16E00465489 /* libImagePDF.a */,
+				AA7ED6AD165D028400465489 /* PDFTest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		AA7ED6AF165D028500465489 /* PDFTest */ = {
+			isa = PBXGroup;
+			children = (
+				AA7ED6B0165D028500465489 /* main.cpp */,
+				AA7ED6B2165D028500465489 /* PDFTest.1 */,
+			);
+			path = PDFTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,7 +157,7 @@
 				AA7ED66B165BD90B00465489 /* ImageFile.h in Headers */,
 				AA7ED66F165BD9BA00465489 /* StreamEncodeProvider.h in Headers */,
 				AA7ED673165BD9FE00465489 /* FlateEncoder.h in Headers */,
-				AA7ED677165BDA3600465489 /* JPXEncoder.h in Headers */,
+				AA7ED67C165CFC3000465489 /* DCTEncoder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +181,23 @@
 			productReference = AA7ED64C165BB16E00465489 /* libImagePDF.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		AA7ED6AC165D028400465489 /* PDFTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA7ED6B4165D028500465489 /* Build configuration list for PBXNativeTarget "PDFTest" */;
+			buildPhases = (
+				AA7ED6A9165D028400465489 /* Sources */,
+				AA7ED6AA165D028400465489 /* Frameworks */,
+				AA7ED6AB165D028400465489 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PDFTest;
+			productName = PDFTest;
+			productReference = AA7ED6AD165D028400465489 /* PDFTest */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -158,6 +220,7 @@
 			projectRoot = "";
 			targets = (
 				AA7ED64B165BB16E00465489 /* ImagePDF */,
+				AA7ED6AC165D028400465489 /* PDFTest */,
 			);
 		};
 /* End PBXProject section */
@@ -170,12 +233,27 @@
 				AA7ED655165BB38100465489 /* Document.cpp in Sources */,
 				AA7ED65A165BB80100465489 /* Page.cpp in Sources */,
 				AA7ED65E165BC97300465489 /* Stream.cpp in Sources */,
-				AA7ED662165BC98600465489 /* StreamHead.cpp in Sources */,
 				AA7ED666165BC99D00465489 /* ImageHead.cpp in Sources */,
 				AA7ED66A165BD90B00465489 /* ImageFile.cpp in Sources */,
 				AA7ED66E165BD9BA00465489 /* StreamEncodeProvider.cpp in Sources */,
 				AA7ED672165BD9FE00465489 /* FlateEncoder.cpp in Sources */,
-				AA7ED676165BDA3600465489 /* JPXEncoder.cpp in Sources */,
+				AA7ED67B165CFC3000465489 /* DCTEncoder.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA7ED6A9165D028400465489 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA7ED6B1165D028500465489 /* main.cpp in Sources */,
+				AA7ED6B8165D0F0000465489 /* DCTEncoder.cpp in Sources */,
+				AA7ED6B9165D0F0900465489 /* StreamEncodeProvider.cpp in Sources */,
+				AA7ED6BA165D0F0D00465489 /* FlateEncoder.cpp in Sources */,
+				AA7ED6BB165D0F1000465489 /* ImageFile.cpp in Sources */,
+				AA7ED6BC165D0F1300465489 /* ImageHead.cpp in Sources */,
+				AA7ED6BD165D0F1700465489 /* Stream.cpp in Sources */,
+				AA7ED6BE165D0F1A00465489 /* Page.cpp in Sources */,
+				AA7ED6BF165D0F1D00465489 /* Document.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,7 +264,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -215,7 +293,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -237,6 +315,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/zlib\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -245,6 +327,34 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/zlib\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AA7ED6B5165D028500465489 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/zlib\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AA7ED6B6165D028500465489 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/zlib\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -266,6 +376,14 @@
 			buildConfigurations = (
 				AA7ED651165BB16E00465489 /* Debug */,
 				AA7ED652165BB16E00465489 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AA7ED6B4165D028500465489 /* Build configuration list for PBXNativeTarget "PDFTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA7ED6B5165D028500465489 /* Debug */,
+				AA7ED6B6165D028500465489 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

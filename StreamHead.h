@@ -27,8 +27,8 @@ using namespace std;
 
 namespace PDF
 {
-	extern class Page;
-	extern class Stream;
+    class Page;
+    class Stream;
 
     class StreamHead
     {
