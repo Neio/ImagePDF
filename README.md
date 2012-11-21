@@ -25,7 +25,7 @@ Usage:
 
 using PDF;
 
-
+```C++
 //create a new pdf file and write a header
 
 PDFDocument doc = PDFDocument.Create("example.pdf");
@@ -82,7 +82,7 @@ page->End();
 
 doc.Close();
 
-
+```
 
 Design:
 ----------------
