@@ -1,11 +1,27 @@
+
+
 ImagePDF
+==============================
 
-Neio Zhou
-2012 11 20
+   Copyright 2012 Neio Zhou
 
-==================
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+---------------------------------------
+
 Usage:
-===================
+---------------
+
 
 using PDF;
 
@@ -48,35 +64,35 @@ doc.Close();
 
 
 
-
-==================
 DESIGN:
-===========
-STRUCTURE:
+----------------
+
+
+#STRUCTURE:
 
 HEAD
 BODY
 XREF
 TRAILER
 
-Classes Relation:
+#Classes Relation:
 
-                        ImageFile (currently jpg file only)
-                         |
-Document  <>---- Page <>-+---- Stream  <>------ StreamHead
-                                 |                ^
-                                 |                |
-                                 |           +------------+
-                                 |           |            |
-                                 |       ImageHead     OtherHead
-                                \ /
-                     StreamEncodeProvider
-                         ^
-                         |
-                    +---------------------+------------------------(to be extended)
-                    |                     |
-    ZlibEncoder(FlateEncoder)       Jpeg2000Encoder(JPXEncoder)
-                                        NOTE: JPXEncoder may write the data to a temporary file and then transform to JPEG2000 
+>                        ImageFile (currently jpg file only)
+>                         |
+>Document  <>---- Page <>-+---- Stream  <>------ StreamHead
+>                                 |                ^
+>                                 |                |
+>                                 |           +------------+
+>                                 |           |            |
+>                                 |       ImageHead     OtherHead
+>                                \ /
+>                     StreamEncodeProvider
+>                         ^
+>                         |
+>                    +---------------------+------------------------(to be extended)
+>                    |                     |
+>    ZlibEncoder(FlateEncoder)       Jpeg2000Encoder(JPXEncoder)
+>                                        NOTE: JPXEncoder may write the data to a temporary file and then transform to JPEG2000 
                                         
 
 

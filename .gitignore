@@ -1,5 +1,4 @@
-“User Data”
-*.tmp
+﻿*.tmp
 Neio
 .DS_Store
 *.swp
@@ -12,3 +11,11 @@ build/
 *.perspectivev3
 *.xcuserstate
 xcuserdata
+
+*.sdf
+*.user
+ipch
+Debug
+Release
+*.opensdf
+*.suo
