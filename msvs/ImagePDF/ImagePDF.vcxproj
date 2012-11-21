@@ -45,6 +45,12 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalDependencies>zlib.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>..\..\zlib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -79,6 +85,7 @@
     <ClInclude Include="..\..\Stream.h" />
     <ClInclude Include="..\..\StreamEncodeProvider.h" />
     <ClInclude Include="..\..\StreamHead.h" />
+    <ClInclude Include="..\..\zlib\zipstream.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\README.md" />

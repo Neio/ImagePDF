@@ -18,6 +18,13 @@
    limitations under the License.
 */
 #include "FlateEncoder.h"
+#include <string>
+#include <iostream>
+#include "zlib\zipstream.hpp"
+
+
+using namespace zlib_stream;
+
 using namespace PDF;
 using namespace std;
 
@@ -25,19 +32,25 @@ string FlateEncoder::getName(){
 	return "FlateDecode";
 }
 
+zip_ostream* zipper;
 
 void FlateEncoder::Begin(){
 	//DO nothing
+	zipper = new zip_ostream(*this->output, true /* gzip file*/);
 }
 
 
 void FlateEncoder::WriteData(char* data, int length){
 	//write data
-
+	
+	zipper->write(data, length);
 }
 
 
 void FlateEncoder::End(){
 	//clean up
 
+	zipper->zflush();
+	delete zipper;
+	zipper = NULL;
 }
