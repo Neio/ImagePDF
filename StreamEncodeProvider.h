@@ -10,7 +10,7 @@
 #define __ImagePDF__StreamEncodeProvider__
 
 #include <iostream>
-
+#include <fstream>
 #include <string>
 using namespace std;
 
@@ -19,8 +19,13 @@ namespace PDF
     class StreamEncodeProvider
     {
     public:
-        virtual string getName();
-       
+		void setOstream(ostream* stream);
+        virtual string getName() = 0;
+		virtual void Begin() = 0;
+		virtual void WriteData(char* data, int length) = 0;
+        virtual void End() = 0;
+	protected:
+		ostream* output;
     };
     
 }

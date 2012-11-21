@@ -14,6 +14,7 @@
 #include "Stream.h"
 #include "StreamHead.h"
 #include "ImageFile.h"
+#include "StreamEncodeProvider.h"
 #include <vector>
 
 using namespace std;
@@ -39,7 +40,7 @@ namespace PDF
         
         int Write(ImageFile& imageFile);
         
-        Stream* StartStream(StreamHead& header);
+        Stream* StartStream(StreamHead& header, StreamEncodeProvider& Provider);
 
         
 

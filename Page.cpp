@@ -78,8 +78,11 @@ vector<StreamHead*>* Page::getResources(){
 	return heads;
 }
 
-Stream* Page::StartStream(StreamHead& header){
-	currentStream = new Stream(*this, *doc);
+Stream* Page::StartStream(StreamHead& header,
+	StreamEncodeProvider& Provider){
+		
+	Provider.setOstream(doc->_file);
+	currentStream = new Stream(this, &Provider);
 	currentStreamHead = &header;
 	int objectId = doc->_address->size();
 	header.WriteXObjectHead(objectId, doc->_file);

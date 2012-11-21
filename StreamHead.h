@@ -25,9 +25,9 @@ namespace PDF
 		string getName();
 
 	private:
-		virtual void WriteContent(ofstream* file) = 0; 
-		virtual void WriteXObjectHead(int objectId, ofstream* file) = 0;
-		virtual void WriteXObjectTail(ofstream* file) = 0;
+		virtual void WriteContent(ostream* file) = 0; 
+		virtual void WriteXObjectHead(int objectId, ostream* file) = 0;
+		virtual void WriteXObjectTail(ostream* file) = 0;
 		friend class Page;
     };
 }

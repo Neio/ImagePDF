@@ -47,11 +47,11 @@ Page* page = doc.StartPage();
 //insert an stream
 
 StreamHead sHead = new ImageHead();
+StreamEncodeProvider encoder = new FlateEncoder();
 
-Stream* stream = page->StartStream(sHead);
+Stream* stream = page->StartStream(sHead, encoder);
 
 stream.Write(data1);
-
 stream.Write(data2);
 
 stream.End();
@@ -105,12 +105,13 @@ Document  <>---- Page <>-+---- Stream  <>------ StreamHead
                                  |       ImageHead     OtherHead
                                 \ /
                      StreamEncodeProvider
-                         ^
-                         |
+								^
+								|
                     +---------------------+------------------------(to be extended)
                     |                     |
-    ZlibEncoder(FlateEncoder)       Jpeg2000Encoder(JPXEncoder)
-	                                        NOTE: JPXEncoder may write the data to a temporary file and then transform to JPEG2000 
+    ZlibEncoder(FlateEncoder)       JpegEncoder(JPXEncoder)
+	                                        NOTE: JPXEncoder may write the data to a temporary file 
+											and then transform to JPEG
 </pre>                                        
 
 

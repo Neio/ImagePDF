@@ -7,3 +7,8 @@
 //
 
 #include "StreamEncodeProvider.h"
+using namespace PDF;
+
+void StreamEncodeProvider::setOstream(ostream* stream){
+	this->output = stream;
+}

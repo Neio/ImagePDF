@@ -27,9 +27,9 @@ ImageHead::ImageHead(int X, int Y, int Width, int Height,
 }
 
 //write page content
-void ImageHead::WriteContent(ofstream* file)
+void ImageHead::WriteContent(ostream* file)
 {
-	ofstream& f = *(file);
+	ostream& f = *(file);
 	f<<"q"<<endl; //save graphics state
 	f<<"1 0 0 1 "<<this->x <<" "<<this->y<<" cm"<<endl; //translate to x y
 	f<<"/"<<this->getName()<<" Do"<<endl;   //paint image
@@ -56,9 +56,9 @@ endstream
 endobj
 */
 
-void ImageHead::WriteXObjectHead(int objectId, ofstream* file){
+void ImageHead::WriteXObjectHead(int objectId, ostream* file){
 	this->id = objectId;
-	ofstream& f = *(file);
+	ostream& f = *(file);
 	f<<this->id<<" 0 obj"<<endl;
 	f<<"<</Type /XObject"<<endl;
 	f<<"/Subtype /Image"<<endl;
@@ -84,9 +84,9 @@ void ImageHead::WriteXObjectHead(int objectId, ofstream* file){
 	//f<<"endobj"<<endl;
 }
 
-void ImageHead::WriteXObjectTail(ofstream* file){
+void ImageHead::WriteXObjectTail(ostream* file){
 
-	ofstream& f = *(file);
+	ostream& f = *(file);
 
 	long size = (long)f.tellp() - this->streamStart;
 	f<<"endstream"<<endl;

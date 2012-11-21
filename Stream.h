@@ -10,6 +10,9 @@
 #define __ImagePDF__Stream__
 
 #include <iostream>
+#include <fstream>
+#include "StreamEncodeProvider.h"
+using namespace std;
 
 namespace PDF
 {
@@ -20,7 +23,7 @@ namespace PDF
         
 	private :
 
-		Stream(Page& page, Document& doc);
+		Stream(Page* page, StreamEncodeProvider* encoder);
 		friend class Page;
     public:
 
@@ -29,6 +32,9 @@ namespace PDF
         
         void End();
     
+	private:
+		Page* page;
+		StreamEncodeProvider* encoder;
     };
 }
 

@@ -133,7 +133,7 @@ namespace PDF{
 				f<<"/Parent "<<pagesId<<" 0 R"<<endl;
 				f<<"/MediaBox [0 0 "<<(*i)->getWidth()<<" "<<(*i)->getHeight()<<"]"<<endl;
 				f<<"/Resources <</ProcSet [/PDF /ImageB]"<<endl;
-					f<<"/XObject <<";
+					f<<"/XObject << ";
 						//write image xobjects
 						vector<StreamHead*>* pageRes = (*i)->getResources();
 						for(vector<StreamHead*>::iterator j = pageRes->begin();

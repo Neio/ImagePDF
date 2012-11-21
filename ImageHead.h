@@ -47,9 +47,9 @@ namespace PDF
 			StreamEncodeProvider& provider);
 
 	private:
-		virtual void WriteContent(ofstream* file);
-		virtual void WriteXObjectHead(int objectId, ofstream* file);
-		virtual void WriteXObjectTail(ofstream* file);
+		virtual void WriteContent(ostream* file);
+		virtual void WriteXObjectHead(int objectId, ostream* file);
+		virtual void WriteXObjectTail(ostream* file);
 
 		friend class Page;
 
