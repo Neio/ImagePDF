@@ -21,9 +21,10 @@ namespace PDF
 
 class Document
 {
-    /*static*/
+
 public:
-    static Document Create(string& filename);
+	Document(string& filename);
+	~Document();
     
 public:
     //start a new page for operation
@@ -51,10 +52,10 @@ private:
     ofstream* _file;
     
     //page catalog
-    vector<Page*> _pages;
+    vector<Page*>* _pages;
     
     //object reference
-    vector<int> _address;
+    vector<long>* _address;
     
 private:
     

@@ -118,7 +118,7 @@ Document  <>---- Page <>-+---- Stream  <>------ StreamHead
                     |                     |
     ZlibEncoder(FlateEncoder)       Jpeg2000Encoder(JPXEncoder)
 	                                        NOTE: JPXEncoder may write the data to a temporary file and then transform to JPEG2000 
-<pre>                                        
+</pre>                                        
 
 
 
