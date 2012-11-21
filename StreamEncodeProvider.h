@@ -19,7 +19,7 @@ namespace PDF
     class StreamEncodeProvider
     {
     public:
-        
+        virtual string getName();
        
     };
     

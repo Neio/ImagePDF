@@ -13,9 +13,18 @@
 
 namespace PDF
 {
+	extern class Page;
+	extern class Document;
+
     class Stream{
         
+	private :
+
+		Stream(Page& page, Document& doc);
+		friend class Page;
     public:
+
+
         void WriteData(char* data, int length);
         
         void End();

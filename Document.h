@@ -13,6 +13,7 @@
 #include <string>
 #include <vector>
 #include "Page.h"
+#include "Stream.h"
 using namespace std;
 
 namespace PDF
@@ -28,10 +29,10 @@ public:
     
 public:
     //start a new page for operation
-    bool StartPage(Page& page);
+    Page* StartPage();
     
     //get current operating page
-    Page& getCurrentPage();
+    Page* getCurrentPage();
     
     /*Finish & close File*/
     bool Close();
@@ -57,12 +58,12 @@ private:
     //object reference
     vector<long>* _address;
     
-private:
-    
     void closePage();
-    
+
     friend class Page;
+	friend class Stream;
     
+
     
 };
     

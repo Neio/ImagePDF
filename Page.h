@@ -20,36 +20,56 @@ using namespace std;
 
 namespace PDF
 {
+	extern class Document;
 
     class Page
     {
-    public:
-        void End();
+    
+	protected:
+		Page(Document& doc);
+
+	public:
+        void End(); 
         
     public:
-        
-        
-        int Write(int data);
-        int Write(bool data);
-        int Write(string& data);
-        
+		void setWidth(int Width);
+		void setHeight(int Height);
+        int getWidth();//in pixel
+		int getHeight();//int pixel
         
         int Write(ImageFile& imageFile);
         
         Stream* StartStream(StreamHead& header);
+
         
+
+
+	protected:
+		//access from Document
+		int getContentId();
+		
+		vector<StreamHead*>* getResources();
         
     private:
         
-        int _id;  //page id
+		int _pageContentId;
         
         vector<int> _children; //children ids
         
     private:
         Stream* currentStream;
+		StreamHead* currentStreamHead;
+		vector<StreamHead*>* heads;
+
         void closeSteram();
-        
+		int _height;
+		int _width;
+
+		
+        friend class Document;
         friend class Stream;
+
+		Document* doc;
     };
 }
 #endif /* defined(__ImagePDF__PDFPage__) */

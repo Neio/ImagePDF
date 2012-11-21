@@ -7,3 +7,92 @@
 //
 
 #include "ImageHead.h"
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace PDF;
+using namespace std;
+
+ImageHead::ImageHead(int X, int Y, int Width, int Height, 
+	ColorSpace colorspace,int BitPerComponent, StreamEncodeProvider& provider){
+	this->x = X;
+	this->y = Y;
+	this->width = Width;
+	this->height = Height;
+	this->colorSpace = colorSpace;
+	this->provider = &provider;
+	this->bit = BitPerComponent;
+}
+
+//write page content
+void ImageHead::WriteContent(ofstream* file)
+{
+	ofstream& f = *(file);
+	f<<"q"<<endl; //save graphics state
+	f<<"1 0 0 1 "<<this->x <<" "<<this->y<<" cm"<<endl; //translate to x y
+	f<<"/"<<this->getName()<<" Do"<<endl;   //paint image
+	f<<"Q"<<endl; //restore graphics state
+
+}
+
+/*
+22 0 obj% Image XObject
+<< /Type /XObject
+/Subtype /Image
+/Width 256
+/Height 256
+/ColorSpace /DeviceGray
+/BitsPerComponent 8
+/Length 83183
+/Filter /ASCII85Decode
+>>
+stream
+9LhZI9h\GY9i+bb;,p:e;G9SP92/)X9MJ>^:f14d;,U(X8P;cO;G9e];c$=k9Mn\]
+…Image data representing 65,536 samples…
+8P;cO;G9e];c$=k9Mn\]~>
+endstream
+endobj
+*/
+
+void ImageHead::WriteXObjectHead(int objectId, ofstream* file){
+	this->id = objectId;
+	ofstream& f = *(file);
+	f<<this->id<<" 0 obj"<<endl;
+	f<<"<</Type /XObject"<<endl;
+	f<<"/Subtype /Image"<<endl;
+	f<<"/Width "<<this->width<<endl;
+	f<<"/Height "<<this->height<<endl;
+	f<<"/ColorSpace /";
+	if(this->colorSpace == DeviceRGB)
+		f<<"DeviceRGB"<<endl;
+	else if(this->colorSpace == DeviceCMYK)
+		f<<"DeviceCMYK"<<endl;
+	else if(this->colorSpace == DeviceGray)
+		f<<"DeviceGray"<<endl;
+	else if(this->colorSpace == DeviceN)
+		f<<"DeviceN"<<endl;
+	f<<"/BitsPerComponent "<<this->bit<<endl;
+	f<<"/Length "<<(objectId +1)<<" 0 R"<<endl;
+	f<<"/Filter "<<provider->getName()<<endl;
+	f<<">>"<<endl;
+	f<<"stream"<<endl;
+	this->streamStart = f.tellp();
+			
+	//	f<<"endstream"<<endl;
+	//f<<"endobj"<<endl;
+}
+
+void ImageHead::WriteXObjectTail(ofstream* file){
+
+	ofstream& f = *(file);
+
+	long size = (long)f.tellp() - this->streamStart;
+	f<<"endstream"<<endl;
+	f<<"endobj"<<endl;
+
+	f<<(id+1)<<" 0 obj"<<endl;
+	f<<size<<endl;
+	f<<"endobj"<<endl;
+}

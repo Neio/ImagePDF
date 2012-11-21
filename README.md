@@ -28,7 +28,7 @@ using PDF;
 ```C++
 //create a new pdf file and write a header
 
-PDFDocument doc = PDFDocument.Create("example.pdf");
+Document doc("example.pdf");
 
 
 //start a new page
@@ -43,13 +43,6 @@ Page* page = doc.StartPage();
 //not implement it
 
 //int id = page->Write(new ImageObject());
-
-
-//insert an integer
-
-int id = page->Write(1);
-
-
 
 //insert an stream
 

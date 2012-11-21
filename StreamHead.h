@@ -10,11 +10,25 @@
 #define __ImagePDF__StreamHead__
 
 #include <iostream>
+#include <string>
+using namespace std;
 
 namespace PDF
 {
+	extern class Page;
+	extern class Stream;
+
     class StreamHead
     {
+	public:
+		int getResourceId();
+		string getName();
+
+	private:
+		virtual void WriteContent(ofstream* file) = 0; 
+		virtual void WriteXObjectHead(int objectId, ofstream* file) = 0;
+		virtual void WriteXObjectTail(ofstream* file) = 0;
+		friend class Page;
     };
 }
 
