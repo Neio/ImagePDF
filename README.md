@@ -38,8 +38,7 @@ page->setHeight(800);	//Set page height
 page->setWidth(600);	//Set page width
 
 //insert an image to current page
-
-//not implement it
+//not-implemented
 //int id = page->Write(new ImageObject());
 
 
@@ -61,8 +60,11 @@ stream->Write(data2, length2);
 
 
 //new page 
-Page* page2 = doc.StartPage();
+page = doc.NewPage();
+page->setHeight(800);
+page->setWidth(600);
 
+//page blank
 
 
 //write pages/catalog information, xref, trailer

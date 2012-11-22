@@ -52,6 +52,11 @@ int _tmain(int argc, _TCHAR* argv[])
    
 	s->WriteData(data, size);
 
+	
+	page = doc.NewPage();
+    page->setHeight(800);
+    page->setWidth(600);
+
 
 	doc.Close();
     std::cout << "Output finished!\n";
