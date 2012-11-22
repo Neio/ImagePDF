@@ -21,108 +21,83 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
-
- //   #include "zlib/zipstream.hpp"
-    #include "zlib/zlib.h"
-//#include "zlib/zconf.h"
+#include "zlib/zlib.h"
 
 
 
-//using namespace zlib_stream;
 
 using namespace PDF;
 using namespace std;
-
-
-int compress2(unsigned char* data, unsigned  long sizeDataOriginal,
-	unsigned char* target, unsigned long* actLength)
-{
-	// So, we'll just play it safe and alloated 1.1x
-    // as much memory + 12 bytes (110% original + 12 bytes)
-
-
-	 int z_result = compress(
-        
-        target,         // destination buffer,
-                                // must be at least
-                                // (1.01X + 12) bytes as large
-                                // as source.. we made it 1.1X + 12bytes
-
-        actLength,    // pointer to var containing
-                                // the current size of the
-                                // destination buffer.
-                                // WHEN this function completes,
-                                // this var will be updated to
-                                // contain the NEW size of the
-                                // compressed data in bytes.
-
-        data,           // source data for compression
-        
-        sizeDataOriginal ) ;    // size of source data in bytes
-
-    switch( z_result )
-    {
-    case Z_OK:
-        printf("***** SUCCESS! *****\n");
-        break;
-
-    case Z_MEM_ERROR:
-        printf("out of memory\n");
-        break;
-
-    case Z_BUF_ERROR:
-        printf("output buffer wasn't large enough!\n");
-        break;
-    }
-
-	return z_result;
-
-}
-
 
 string FlateEncoder::getName(){
 	return "FlateDecode";
 }
 
-//zip_ostream* zipper;
 
 void FlateEncoder::Begin(){
 	//DO nothing
-	//zipper = new zip_ostream(*this->output, true /* gzip file*/);
+
+	 /* allocate deflate state */
+    strm.zalloc = Z_NULL;
+    strm.zfree = Z_NULL;
+    strm.opaque = Z_NULL;
+    int ret = deflateInit(&strm, 9);
+    if (ret != Z_OK)
+        throw new exception("zlib init not success");
 }
 
 
 void FlateEncoder::WriteData(unsigned  char* data, unsigned long length){
 	//write data
-	//for(int i = 0; i< length; i++){
-	//	short d = (short)data[i] & 0xFF;
-	//	(*this->output)<<setfill('0') <<setw(2)<<hex<<d;
-	//}
-	//(*this->output)<<dec;
-	//this->output->write(data, length);
-	//zipper->write(data, length);
+	strm.avail_in = length;
+	strm.next_in = data;
+	strm.avail_out = CHUNK;
+    strm.next_out = out;
 
+	int ret = deflate(&strm, Z_NO_FLUSH);    /* no bad return value */
+    if(ret == Z_STREAM_ERROR)
+	{
+		throw new exception("zlib compress not success");
+	}
+	have = CHUNK - strm.avail_out;
+	this->output->write((char*)out, have);
 	
-    unsigned long sizeDataCompressed  = (length * 1.1) + 12;
+    /*unsigned long sizeDataCompressed  = (length * 1.1) + 12;
     unsigned char * dataCompressed = (unsigned char*)malloc( sizeDataCompressed );
 
 	if(compress2((unsigned char*)data, length, dataCompressed, &sizeDataCompressed) == 0)
 	{
 		this->output->write((char*)dataCompressed, sizeDataCompressed);
-		free(dataCompressed);
+		
 	}
 	else
 	{
 		//throw gzcompress not success
 		throw new exception("zlib compress not success");
 	}
+
+	free(dataCompressed);*/
 }
 
 
 void FlateEncoder::End(){
+
+	unsigned char empty[1];
+	strm.avail_in = 0;
+	strm.next_in = empty;
+	strm.avail_out = CHUNK;
+    strm.next_out = out;
+
+	int ret = deflate(&strm, Z_FINISH );    /* no bad return value */
+    if(ret == Z_STREAM_ERROR)
+	{
+		throw new exception("zlib compress not success");
+	}
+	have = CHUNK - strm.avail_out;
+	this->output->write((char*)out, have);
+
+
+	deflateEnd(&strm);
+
 	//clean up
-	//(*this->output)<<dec;
-	//zipper->zflush();
-	//delete zipper;
-	//zipper = NULL;
 }

@@ -24,10 +24,13 @@
 #include <iostream>
 #include "StreamEncodeProvider.h"
 #include <string>
+#include "zlib/zlib.h"
 using namespace std;
 
 namespace PDF
 {
+	#define CHUNK 16384
+
     class FlateEncoder: public StreamEncodeProvider
     {
     public:
@@ -35,7 +38,10 @@ namespace PDF
 		virtual void Begin();
 		virtual void WriteData(unsigned  char* data, unsigned long length);
         virtual void End();
-        
+	private:
+		unsigned have;
+		z_stream strm;
+		unsigned char out[CHUNK];
     };
     
 }
