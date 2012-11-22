@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA232786165E750100FAA34C /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA232784165E750100FAA34C /* libjpeg.a */; };
+		AA232787165E750100FAA34C /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA232785165E750100FAA34C /* libz.a */; };
+		AA232788165E751300FAA34C /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA232784165E750100FAA34C /* libjpeg.a */; };
+		AA232789165E751600FAA34C /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA232785165E750100FAA34C /* libz.a */; };
 		AA7ED655165BB38100465489 /* Document.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED653165BB38100465489 /* Document.cpp */; };
 		AA7ED656165BB38100465489 /* Document.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED654165BB38100465489 /* Document.h */; };
 		AA7ED65A165BB80100465489 /* Page.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED658165BB80100465489 /* Page.cpp */; };
@@ -34,7 +38,6 @@
 		AA7ED6BD165D0F1700465489 /* Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED65C165BC97300465489 /* Stream.cpp */; };
 		AA7ED6BE165D0F1A00465489 /* Page.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED658165BB80100465489 /* Page.cpp */; };
 		AA7ED6BF165D0F1D00465489 /* Document.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED653165BB38100465489 /* Document.cpp */; };
-		AA7ED6CA165D143500465489 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7ED6C9165D143500465489 /* libz.a */; };
 		AA7ED6CD165E468300465489 /* ASCIIEncoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED6CB165E468300465489 /* ASCIIEncoder.cpp */; };
 		AA7ED6CE165E468300465489 /* ASCIIEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED6CC165E468300465489 /* ASCIIEncoder.h */; };
 		AA7ED6CF165E4A1B00465489 /* ASCIIEncoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED6CB165E468300465489 /* ASCIIEncoder.cpp */; };
@@ -54,6 +57,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA232784165E750100FAA34C /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeg.a; path = lib/libjpeg.a; sourceTree = "<group>"; };
+		AA232785165E750100FAA34C /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = lib/libz.a; sourceTree = "<group>"; };
 		AA7ED64C165BB16E00465489 /* libImagePDF.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libImagePDF.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA7ED653165BB38100465489 /* Document.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = Document.cpp; sourceTree = "<group>"; };
 		AA7ED654165BB38100465489 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = Document.h; sourceTree = "<group>"; };
@@ -77,7 +82,6 @@
 		AA7ED6AD165D028400465489 /* PDFTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PDFTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA7ED6B0165D028500465489 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		AA7ED6B2165D028500465489 /* PDFTest.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = PDFTest.1; sourceTree = "<group>"; };
-		AA7ED6C9165D143500465489 /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = zlib/libz.a; sourceTree = "<group>"; };
 		AA7ED6CB165E468300465489 /* ASCIIEncoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ASCIIEncoder.cpp; sourceTree = "<group>"; };
 		AA7ED6CC165E468300465489 /* ASCIIEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCIIEncoder.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +91,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA232786165E750100FAA34C /* libjpeg.a in Frameworks */,
+				AA232787165E750100FAA34C /* libz.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +100,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA7ED6CA165D143500465489 /* libz.a in Frameworks */,
+				AA232788165E751300FAA34C /* libjpeg.a in Frameworks */,
+				AA232789165E751600FAA34C /* libz.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,9 +111,10 @@
 		AA7ED641165BB16E00465489 = {
 			isa = PBXGroup;
 			children = (
+				AA232784165E750100FAA34C /* libjpeg.a */,
+				AA232785165E750100FAA34C /* libz.a */,
 				AA7ED6CB165E468300465489 /* ASCIIEncoder.cpp */,
 				AA7ED6CC165E468300465489 /* ASCIIEncoder.h */,
-				AA7ED6C9165D143500465489 /* libz.a */,
 				AA7ED679165CFC3000465489 /* DCTEncoder.cpp */,
 				AA7ED67A165CFC3000465489 /* DCTEncoder.h */,
 				AA7ED678165BDBFC00465489 /* .gitignore */,
@@ -328,6 +336,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/zlib\"",
+					"\"$(SRCROOT)/lib\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -340,6 +349,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/zlib\"",
+					"\"$(SRCROOT)/lib\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -352,6 +362,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/zlib\"",
+					"\"$(SRCROOT)/lib\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -364,6 +375,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/zlib\"",
+					"\"$(SRCROOT)/lib\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -388,6 +400,7 @@
 				AA7ED652165BB16E00465489 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA7ED6B4165D028500465489 /* Build configuration list for PBXNativeTarget "PDFTest" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +409,7 @@
 				AA7ED6B6165D028500465489 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

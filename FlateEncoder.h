@@ -34,6 +34,9 @@ namespace PDF
     class FlateEncoder: public StreamEncodeProvider
     {
     public:
+        
+        FlateEncoder(int compressQuality);
+        
         virtual string getName();
 		virtual void Begin();
 		virtual void WriteData(unsigned  char* data, unsigned long length);
@@ -42,6 +45,7 @@ namespace PDF
 		unsigned have;
 		z_stream strm;
 		unsigned char out[CHUNK];
+        int quality;
         
     protected:
         

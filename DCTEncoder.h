@@ -24,6 +24,8 @@
 #include <iostream>
 #include "StreamEncodeProvider.h"
 #include <string>
+#include "lib/jpeglib.h"
+
 using namespace std;
 
 namespace PDF
@@ -36,8 +38,13 @@ namespace PDF
 		virtual void WriteData(unsigned  char* data, unsigned long length);
         virtual void End();
         
-        
-        
+    private:
+        jpeg_compress_struct cinfo;
+        jpeg_error_mgr jerr;
+        peg_destination_mgr dmgr;
+        int quality;
+        int image_width;
+        int image_height;
     };
     
 }

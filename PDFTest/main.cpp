@@ -28,7 +28,7 @@ int main(int argc, const char * argv[])
     
     //new page
 	Page* page = doc.NewPage();
-    page->setHeight(800);
+    page->setHeight(400);
     page->setWidth(600);
     
     //image data
@@ -56,7 +56,7 @@ int main(int argc, const char * argv[])
 
     
     page = doc.NewPage();
-    page->setHeight(800);
+    page->setHeight(400);
     page->setWidth(600);
     
     

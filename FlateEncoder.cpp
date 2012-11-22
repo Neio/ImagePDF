@@ -29,6 +29,14 @@
 using namespace PDF;
 using namespace std;
 
+FlateEncoder::FlateEncoder(int compressQuality)
+{
+    
+    this->quality = compressQuality;
+    if(quality >9)
+        quality = 9;
+}
+
 string FlateEncoder::getName(){
 	return "FlateDecode";
 }
@@ -41,7 +49,7 @@ void FlateEncoder::Begin(){
     strm.zalloc = Z_NULL;
     strm.zfree = Z_NULL;
     strm.opaque = Z_NULL;
-    int ret = deflateInit(&strm, 9);
+    int ret = deflateInit(&strm, quality);
     if (ret != Z_OK)
         throw new exception();
     
