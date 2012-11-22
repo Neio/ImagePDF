@@ -35,6 +35,7 @@ namespace PDF
 	public:
 		virtual int getResourceId()=0;
 		virtual string getName()=0;
+		virtual ~StreamHead(){};
 
 	protected:
 		virtual void WriteContent(ostream* file) = 0; 

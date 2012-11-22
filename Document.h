@@ -60,8 +60,6 @@ private:
     //current id
     int _currentId;
     
-    //file handle
-    ofstream* _file;
     
     //page catalog
     vector<Page*>* _pages;
@@ -73,6 +71,10 @@ private:
 
     friend class Page;
 	friend class Stream;
+
+	
+    //file handle
+    ofstream* _file;
     
 
     

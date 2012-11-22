@@ -37,7 +37,7 @@ void Stream::End(){
 	this->encoder->End();
 	this->encoder = NULL;
 	this->page->closeSteram();
-	this->page = NULL;
+	//this->page = NULL; //because this class has been deleted
 }
 
 void Stream::WriteData(char* data, int length){

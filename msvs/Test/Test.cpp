@@ -15,21 +15,46 @@ using namespace PDF;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	Document doc(string("test.pdf"));
+	std::cout << "Hello, World!\n";
+    
+    string filename = "test.pdf";
+    Document doc(filename);
 	Page* page = doc.StartPage();
-	ImageHead* header = new ImageHead(
-		0,0,
-		10,1, PDF::DeviceRGB,8);
-	FlateEncoder* encoder = new FlateEncoder();
-	//Stream* s =  page->StartStream(header, encoder);
-	//char data[]= "Hello World";
-	//s->WriteData(data, 5);
-	//s->End();
-	page->End();
-	doc.Close();
+    page->setHeight(800);
+    page->setWidth(600);
 
+	const int size = 40 * 10 * 3;
+	char data[size];
+    memset(data, 0x77 ,size * sizeof(char));
+
+	Stream* s =  page->StartStream(
+		new ImageHead(10,10,200,50, 40,10, PDF::DeviceRGB,8), 
+		new FlateEncoder());
+   
+	s->WriteData(data, size);
+	s->End();
+		
+	page->End();
+
+	page = doc.StartPage();
+    page->setHeight(800);
+    page->setWidth(600);
+
+	
+    
+    s =  page->StartStream(
+		new ImageHead(10,10,400,100, 40,10, PDF::DeviceRGB,8), 
+		new FlateEncoder());
+   
+	s->WriteData(data, size);
+	s->End();
+    page->End();                                  
+    
+	doc.Close();
+    
 	//delete s;
-	delete encoder;
+    
+    std::cout << "Output finished!\n";
 	
 
 	return 0;

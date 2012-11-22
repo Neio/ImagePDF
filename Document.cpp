@@ -1,4 +1,4 @@
-//
+﻿//
 //  PDFDocument.cpp
 //  ImagePDF
 /*
@@ -34,11 +34,13 @@ namespace PDF{
 	{
 		//file should end of ".pdf"
 		
-		this->_file = new ofstream(filename,ofstream::binary | ofstream::binary);
+		this->_file = new ofstream(filename.c_str(),ofstream::binary | ofstream::binary);
 
 		//init
 		_pages = new vector<Page*>();
+		_pages->reserve(1000);
 		_address = new vector<long long>();
+		_address->reserve(1000);
 
 		//write PDF head
 		ofstream& f = *(this->_file);
@@ -258,8 +260,9 @@ namespace PDF{
 
 
 	Page* Document::StartPage(){
-		_currentPage = new Page(*this);
-		_pages->push_back(_currentPage);
+		Page* page = new Page(*this);
+		this->_currentPage = page;
+		_pages->push_back(page);
 		return _currentPage;
 	}
 

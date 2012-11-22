@@ -1,4 +1,4 @@
-//
+﻿//
 //  ImageHead.cpp
 //  ImagePDF
 //
@@ -37,21 +37,35 @@ int ImageHead::getResourceId(){
 
 
 string ImageHead::getName(){
-	stringstream ss;
-	ss<<constName;
-	ss<<this->nameId;
-	return ss.str();
+	return *this->name;
 }
 
-ImageHead::ImageHead(int X, int Y, int Width, int Height, 
+ImageHead::ImageHead(int TargetX, int TargetY, int TargetWidth, int TargetHeight, 
+	int ImageWidth,
+	int ImageHeight,
 	ColorSpace colorspace,int BitPerComponent){
-	this->x = X;
-	this->y = Y;
-	this->width = Width;
-	this->height = Height;
+	this->x = TargetX;
+	this->y = TargetY;
+	this->width = TargetWidth;
+	this->height = TargetHeight;
+	this->imageHeight = ImageHeight;
+	this->imageWidth = ImageWidth;
 	this->colorSpace = colorspace;
 	this->bit = BitPerComponent;
 	nameId = nameCounting ++;
+
+	stringstream ss;
+	ss<<constName;
+	ss<<this->nameId;
+	this->name = new string( ss.str());
+}
+
+ImageHead::~ImageHead()
+{
+	delete this->name;
+	this->name = NULL;
+	delete this->provider;
+	this->provider = NULL;
 }
 
 //write page content
@@ -59,7 +73,7 @@ void ImageHead::WriteContent(ostream* file)
 {
 	ostream& f = *(file);
 	f<<"q"<<endl; //save graphics state
-	f<<"1 0 0 1 "<<this->x <<" "<<this->y<<" cm"<<endl; //translate to x y
+	f<<this->width<<" 0 0 "<<this->height<<" "<<this->x <<" "<<this->y<<" cm"<<endl; //translate to x y
 	f<<"/"<<this->getName()<<" Do"<<endl;   //paint image
 	f<<"Q"<<endl; //restore graphics state
 
@@ -90,8 +104,8 @@ void ImageHead::WriteXObjectHead(int objectId, ostream* file){
 	f<<this->id<<" 0 obj"<<endl;
 	f<<"<</Type /XObject"<<endl;
 	f<<"/Subtype /Image"<<endl;
-	f<<"/Width "<<this->width<<endl;
-	f<<"/Height "<<this->height<<endl;
+	f<<"/Width "<<this->imageWidth<<endl;
+	f<<"/Height "<<this->imageHeight<<endl;
 	f<<"/ColorSpace /";
 	if(this->colorSpace == DeviceRGB)
 		f<<"DeviceRGB"<<endl;
@@ -119,7 +133,7 @@ int ImageHead::WriteXObjectTail(ostream* file){
 
 	ostream& f = *(file);
 
-	long long size = f.tellp() - this->streamStart;
+	long long size = (long long)f.tellp() - (this->streamStart);
 	f<<endl<<"endstream"<<endl;
 	f<<"endobj"<<endl;
 

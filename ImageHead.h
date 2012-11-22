@@ -53,8 +53,11 @@ namespace PDF
     class ImageHead : public StreamHead
     {
 	public:
-		ImageHead(int X, int Y, int Width, int Height,
+		ImageHead(int TargetX, int TargetY, int TargetWidth, int TargetHeight, 
+				int ImageWidth,
+				int ImageHeight,
 			ColorSpace colorspace, int BitPerComponent);
+		~ImageHead();
 		virtual int getResourceId();
 		virtual string getName();
 
@@ -70,6 +73,9 @@ namespace PDF
 		int y;
 		int width;
 		int height;
+		
+		int imageWidth;
+		int imageHeight;
 		ColorSpace colorSpace;
 		
 		int bit;
@@ -78,6 +84,7 @@ namespace PDF
 		long long streamStart;
 
 		int nameId;
+		string* name;
     };
 
 }

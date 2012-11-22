@@ -30,10 +30,26 @@ using namespace std;
 Page::Page(Document& doc){
 	this->doc = &doc;
 	heads = new vector<StreamHead*>();
+	this->_height = 100;
+	this->_width = 200;
+
+}
+
+Page::~Page()
+{
+	for(vector<StreamHead*>::iterator j = heads->begin();
+		j != heads->end();
+		j++)
+	{
+		if(*j != NULL)
+			delete *j;
+	}
+	delete heads;
+	heads = NULL;
 }
 void Page::End(){
 	//TODO save page content info, which describe how to print the page
-	ostream& f = *(this->doc->_file);
+	
 
 	/*
 	23 0 obj					% Contents of page
@@ -56,15 +72,17 @@ void Page::End(){
     
 	this->_pageContentId = doc->_address->size();
 
-	long location = (long)f.tellp();
+	//#define f (*(doc->_file))
+	ostream& f = *(doc->_file);
+	
+	long long location = f.tellp();
 	doc->_address->push_back(location);//add page id
 
-	f<<_pageContentId<<" 0 obj"<<endl;
-	f<<"<< /Length "<<(_pageContentId + 1)<<" 0 R >>"<<endl;
 
-
+	f<<this->_pageContentId<<" 0 obj"<<endl;
+	f<<"<< /Length "<<(this->_pageContentId + 1)<<" 0 R >>"<<endl;
 	f<<"stream"<<endl;
-	long sizecountStart = f.tellp();
+	long long sizecountStart = f.tellp();
 	for(vector<StreamHead*>::iterator j = heads->begin();
 		j != heads->end();
 		j++)
@@ -72,13 +90,15 @@ void Page::End(){
 		(*j)->WriteContent(&f);
 	}
 	
-	long sizecount = (long)f.tellp() - sizecountStart;
+	long long sizecount = (long long)f.tellp() - sizecountStart;
 	f<<"endstream"<<endl<<"endobj"<<endl;
 
 	int sizeId = doc->_address->size();
 	doc->_address->push_back(f.tellp());
 	f<<sizeId<<" 0 obj"<<endl<<sizecount<<endl<<"endobj"<<endl;
     //}
+
+	doc->closePage();
 }
 
 void Page::setWidth(int Width){
@@ -110,7 +130,9 @@ Stream* Page::StartStream(StreamHead* header,
 	int objectId = doc->_address->size();
 	doc->_address->push_back(doc->_file->tellp());
 	header->WriteXObjectHead(objectId, doc->_file);
+
     heads->push_back(header);
+
 	return currentStream;
 
 }
