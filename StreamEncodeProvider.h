@@ -28,6 +28,7 @@ using namespace std;
 
 namespace PDF
 {
+    
     class StreamEncodeProvider
     {
     public:
@@ -36,8 +37,12 @@ namespace PDF
 		virtual void Begin() = 0;
 		virtual void WriteData(unsigned char* data, unsigned long length) = 0;
         virtual void End() = 0;
+        
+        //virtual ~StreamEncodeProvider();
+
 	protected:
-		ostream* output;
+        
+        ostream* output;
     };
     
 }

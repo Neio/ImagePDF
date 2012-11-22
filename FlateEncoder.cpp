@@ -43,7 +43,9 @@ void FlateEncoder::Begin(){
     strm.opaque = Z_NULL;
     int ret = deflateInit(&strm, 9);
     if (ret != Z_OK)
-        throw new exception("zlib init not success");
+        throw new exception();
+    
+    
 }
 
 
@@ -57,7 +59,7 @@ void FlateEncoder::WriteData(unsigned  char* data, unsigned long length){
 	int ret = deflate(&strm, Z_NO_FLUSH);    /* no bad return value */
     if(ret == Z_STREAM_ERROR)
 	{
-		throw new exception("zlib compress not success");
+		throw new exception();
 	}
 	have = CHUNK - strm.avail_out;
 	this->output->write((char*)out, have);
@@ -91,7 +93,7 @@ void FlateEncoder::End(){
 	int ret = deflate(&strm, Z_FINISH );    /* no bad return value */
     if(ret == Z_STREAM_ERROR)
 	{
-		throw new exception("zlib compress not success");
+		throw new exception();
 	}
 	have = CHUNK - strm.avail_out;
 	this->output->write((char*)out, have);

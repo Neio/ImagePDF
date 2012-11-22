@@ -35,6 +35,9 @@
 		AA7ED6BE165D0F1A00465489 /* Page.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED658165BB80100465489 /* Page.cpp */; };
 		AA7ED6BF165D0F1D00465489 /* Document.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED653165BB38100465489 /* Document.cpp */; };
 		AA7ED6CA165D143500465489 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7ED6C9165D143500465489 /* libz.a */; };
+		AA7ED6CD165E468300465489 /* ASCIIEncoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED6CB165E468300465489 /* ASCIIEncoder.cpp */; };
+		AA7ED6CE165E468300465489 /* ASCIIEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7ED6CC165E468300465489 /* ASCIIEncoder.h */; };
+		AA7ED6CF165E4A1B00465489 /* ASCIIEncoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA7ED6CB165E468300465489 /* ASCIIEncoder.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -75,6 +78,8 @@
 		AA7ED6B0165D028500465489 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		AA7ED6B2165D028500465489 /* PDFTest.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = PDFTest.1; sourceTree = "<group>"; };
 		AA7ED6C9165D143500465489 /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = zlib/libz.a; sourceTree = "<group>"; };
+		AA7ED6CB165E468300465489 /* ASCIIEncoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ASCIIEncoder.cpp; sourceTree = "<group>"; };
+		AA7ED6CC165E468300465489 /* ASCIIEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCIIEncoder.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +104,8 @@
 		AA7ED641165BB16E00465489 = {
 			isa = PBXGroup;
 			children = (
+				AA7ED6CB165E468300465489 /* ASCIIEncoder.cpp */,
+				AA7ED6CC165E468300465489 /* ASCIIEncoder.h */,
 				AA7ED6C9165D143500465489 /* libz.a */,
 				AA7ED679165CFC3000465489 /* DCTEncoder.cpp */,
 				AA7ED67A165CFC3000465489 /* DCTEncoder.h */,
@@ -158,6 +165,7 @@
 				AA7ED66F165BD9BA00465489 /* StreamEncodeProvider.h in Headers */,
 				AA7ED673165BD9FE00465489 /* FlateEncoder.h in Headers */,
 				AA7ED67C165CFC3000465489 /* DCTEncoder.h in Headers */,
+				AA7ED6CE165E468300465489 /* ASCIIEncoder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +246,7 @@
 				AA7ED66E165BD9BA00465489 /* StreamEncodeProvider.cpp in Sources */,
 				AA7ED672165BD9FE00465489 /* FlateEncoder.cpp in Sources */,
 				AA7ED67B165CFC3000465489 /* DCTEncoder.cpp in Sources */,
+				AA7ED6CD165E468300465489 /* ASCIIEncoder.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +263,7 @@
 				AA7ED6BD165D0F1700465489 /* Stream.cpp in Sources */,
 				AA7ED6BE165D0F1A00465489 /* Page.cpp in Sources */,
 				AA7ED6BF165D0F1D00465489 /* Document.cpp in Sources */,
+				AA7ED6CF165E4A1B00465489 /* ASCIIEncoder.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
