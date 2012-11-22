@@ -32,7 +32,8 @@ Page::Page(Document& doc){
 	heads = new vector<StreamHead*>();
 	this->_height = 100;
 	this->_width = 200;
-
+	this->currentStream = NULL;
+	this->currentStreamHead = NULL;
 }
 
 Page::~Page()
@@ -49,7 +50,11 @@ Page::~Page()
 }
 void Page::End(){
 	//TODO save page content info, which describe how to print the page
-	
+	//close stream if stream is not closed
+	if(currentStream != NULL)
+	{
+		closeStream();
+	}
 
 	/*
 	23 0 obj					% Contents of page
@@ -122,6 +127,12 @@ vector<StreamHead*>* Page::getResources(){
 
 Stream* Page::StartStream(StreamHead* header,
 	StreamEncodeProvider* Provider){
+
+		//close previous stream if not closed
+	if(currentStream != NULL)
+	{
+		closeStream();
+	}
 		
 	Provider->setOstream(doc->_file);
 	header->provider = Provider;
@@ -137,12 +148,15 @@ Stream* Page::StartStream(StreamHead* header,
 
 }
 
-void Page::closeSteram(){
-	long newid = currentStreamHead->WriteXObjectTail(doc->_file);
-	doc->_address->push_back(newid);
+void Page::closeStream(){
+
 	if(currentStream != NULL){
 		delete currentStream;
 		currentStream = NULL;
 	}
+
+	long newid = currentStreamHead->WriteXObjectTail(doc->_file);
+	doc->_address->push_back(newid);
+	
 	currentStreamHead = NULL;
 }

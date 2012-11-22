@@ -35,14 +35,14 @@ namespace PDF
 	public:
 		virtual int getResourceId()=0;
 		virtual string getName()=0;
-		virtual ~StreamHead(){};
 
 	protected:
 		virtual void WriteContent(ostream* file) = 0; 
 		virtual void WriteXObjectHead(int objectId, ostream* file) = 0;
 		virtual int WriteXObjectTail(ostream* file) = 0;
 		friend class Page;
-
+		
+		virtual ~StreamHead(){};
 		StreamEncodeProvider* provider;
     };
 }

@@ -35,6 +35,7 @@ namespace PDF
 	private :
 
 		Stream(Page* page, StreamEncodeProvider* encoder);
+		~Stream();
 		friend class Page;
     public:
 

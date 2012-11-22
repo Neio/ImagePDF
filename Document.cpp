@@ -41,6 +41,7 @@ namespace PDF{
 		_pages->reserve(1000);
 		_address = new vector<long long>();
 		_address->reserve(1000);
+		_currentPage = NULL;
 
 		//write PDF head
 		ofstream& f = *(this->_file);
@@ -54,6 +55,12 @@ namespace PDF{
 	}
 
 	Document::~Document(){
+
+		if(_opened)
+		{
+			Close();
+		}
+
 		if(this->_file != NULL){
 			this->_file->close();
 			delete this->_file;
@@ -82,6 +89,13 @@ namespace PDF{
 
 	bool Document::Close()
 	{
+		//check page closed
+		if(this->_currentPage != NULL)
+		{
+			this->_currentPage->End();
+			this->_currentPage = NULL;
+		}
+
 		//TODO save page catalog, xref and trailer
 		ofstream& f = *(this->_file);
 
@@ -253,6 +267,7 @@ namespace PDF{
 
 		//clean
 
+		this->_opened = false;
 
 		return true;
 	}
@@ -260,6 +275,13 @@ namespace PDF{
 
 
 	Page* Document::StartPage(){
+
+		if(this->_currentPage != NULL)
+		{
+			this->_currentPage->End();
+			this->_currentPage = NULL;
+		}
+
 		Page* page = new Page(*this);
 		this->_currentPage = page;
 		_pages->push_back(page);

@@ -57,11 +57,12 @@ namespace PDF
 				int ImageWidth,
 				int ImageHeight,
 			ColorSpace colorspace, int BitPerComponent);
-		~ImageHead();
+		
 		virtual int getResourceId();
 		virtual string getName();
 
 	protected:
+		~ImageHead();
 		virtual void WriteContent(ostream* file);
 		virtual void WriteXObjectHead(int objectId, ostream* file);
 		virtual int WriteXObjectTail(ostream* file);

@@ -38,8 +38,12 @@ namespace PDF
     class Page
     {
     
-	public:
+	private:
 		Page(Document& doc);
+
+        ~Page();
+
+	public:
         void End(); 
         
     public:
@@ -52,7 +56,6 @@ namespace PDF
         
         Stream* StartStream(StreamHead* header, StreamEncodeProvider* Provider);
 
-        ~Page();
 
 
 	protected:
@@ -64,14 +67,13 @@ namespace PDF
     private:
         
 		size_t _pageContentId;
-       // vector<int> _children; //children ids
         
     private:
         Stream* currentStream;
 		StreamHead* currentStreamHead;
 		vector<StreamHead*>* heads;
 
-        void closeSteram();
+        void closeStream();
 		int _height;
 		int _width;
 		

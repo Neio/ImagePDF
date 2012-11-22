@@ -33,10 +33,19 @@ Stream::Stream(Page* page, StreamEncodeProvider* encoder)
 	this->encoder->Begin();
 }
 
+Stream::~Stream()
+{
+	if(this->encoder != NULL)
+	{
+		this->encoder->End();
+		this->encoder = NULL;
+	}
+}
+
+
 void Stream::End(){
-	this->encoder->End();
-	this->encoder = NULL;
-	this->page->closeSteram();
+	
+	this->page->closeStream();
 	//this->page = NULL; //because this class has been deleted
 }
 

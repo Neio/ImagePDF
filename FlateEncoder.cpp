@@ -20,6 +20,7 @@
 #include "FlateEncoder.h"
 #include <string>
 #include <iostream>
+#include <iomanip>
 
  //   #include "zlib/zipstream.hpp"
     #include "zlib/zlib.h"
@@ -87,8 +88,9 @@ void FlateEncoder::WriteData(char* data, int length){
 	//write data
 	for(int i = 0; i< length; i++){
 		short d = (short)data[i] & 0xFF;
-		(*this->output)<<hex<<d;
+		(*this->output)<<setfill('0') <<setw(2)<<hex<<d;
 	}
+	//(*this->output)<<dec;
 	//this->output->write(data, length);
 	//zipper->write(data, length);
 	//if(gzcompress((Bytef *)data, length, zdata, &nzdata) == 0)

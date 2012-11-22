@@ -23,37 +23,35 @@ int _tmain(int argc, _TCHAR* argv[])
     page->setHeight(800);
     page->setWidth(600);
 
+	//sample data
 	const int size = 40 * 10 * 3;
 	char data[size];
-    memset(data, 0x77 ,size * sizeof(char));
+    memset(data, 0x01 ,size * sizeof(char));
 
 	Stream* s =  page->StartStream(
 		new ImageHead(10,10,200,50, 40,10, PDF::DeviceRGB,8), 
 		new FlateEncoder());
    
 	s->WriteData(data, size);
-	s->End();
-		
-	page->End();
 
 	page = doc.StartPage();
     page->setHeight(800);
     page->setWidth(600);
 
-	
-    
     s =  page->StartStream(
 		new ImageHead(10,10,400,100, 40,10, PDF::DeviceRGB,8), 
 		new FlateEncoder());
    
 	s->WriteData(data, size);
-	s->End();
-    page->End();                                  
-    
+
+	s =page->StartStream(
+		new ImageHead(10,200,400,100, 40,10, PDF::DeviceRGB,8), 
+		new FlateEncoder());
+   
+	s->WriteData(data, size);
+
+
 	doc.Close();
-    
-	//delete s;
-    
     std::cout << "Output finished!\n";
 	
 
