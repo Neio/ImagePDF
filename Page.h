@@ -60,7 +60,7 @@ namespace PDF
 
 	protected:
 		//access from Document
-		int getContentId();
+		size_t getContentId();
 		
 		vector<StreamHead*>* getResources();
         

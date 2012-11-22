@@ -25,13 +25,20 @@
 #include <vector>
 #include <sstream>
 
+
+
 using namespace PDF;
 using namespace std;
+
+StreamHead::~StreamHead(){
+    delete this->provider;
+	this->provider = NULL;
+}
 
 static int nameCounting = 1;
 static string constName = "im";
 
-int ImageHead::getResourceId(){
+size_t ImageHead::getResourceId(){
 	return id;
 }
 
@@ -64,8 +71,7 @@ ImageHead::~ImageHead()
 {
 	delete this->name;
 	this->name = NULL;
-	delete this->provider;
-	this->provider = NULL;
+	
 }
 
 //write page content
@@ -98,7 +104,7 @@ endstream
 endobj
 */
 
-void ImageHead::WriteXObjectHead(int objectId, ostream* file){
+void ImageHead::WriteXObjectHead(size_t objectId, ostream* file){
 	this->id = objectId;
 	ostream& f = *(file);
 	f<<this->id<<" 0 obj"<<endl;
@@ -129,7 +135,7 @@ void ImageHead::WriteXObjectHead(int objectId, ostream* file){
 	//f<<"endobj"<<endl;
 }
 
-int ImageHead::WriteXObjectTail(ostream* file){
+size_t ImageHead::WriteXObjectTail(ostream* file){
 
 	ostream& f = *(file);
 
@@ -137,7 +143,7 @@ int ImageHead::WriteXObjectTail(ostream* file){
 	f<<endl<<"endstream"<<endl;
 	f<<"endobj"<<endl;
 
-	long newid = (long)f.tellp();
+	size_t newid = f.tellp();
 
 	f<<(id+1)<<" 0 obj"<<endl;
 	f<<size<<endl;

@@ -42,6 +42,11 @@ namespace PDF
 		unsigned have;
 		z_stream strm;
 		unsigned char out[CHUNK];
+        
+    protected:
+        
+        ~FlateEncoder(){}
+
     };
     
 }

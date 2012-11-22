@@ -23,3 +23,8 @@ using namespace PDF;
 void StreamEncodeProvider::setOstream(ostream* stream){
 	this->output = stream;
 }
+
+StreamEncodeProvider::~StreamEncodeProvider()
+{
+    this->output = NULL;
+}

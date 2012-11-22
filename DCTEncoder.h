@@ -36,6 +36,8 @@ namespace PDF
 		virtual void WriteData(unsigned  char* data, unsigned long length);
         virtual void End();
         
+        
+        
     };
     
 }

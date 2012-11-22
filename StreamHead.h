@@ -33,17 +33,18 @@ namespace PDF
     class StreamHead
     {
 	public:
-		virtual int getResourceId()=0;
+		virtual size_t getResourceId()=0;
 		virtual string getName()=0;
 
 	protected:
 		virtual void WriteContent(ostream* file) = 0; 
-		virtual void WriteXObjectHead(int objectId, ostream* file) = 0;
-		virtual int WriteXObjectTail(ostream* file) = 0;
+		virtual void WriteXObjectHead(size_t objectId, ostream* file) = 0;
+		virtual size_t WriteXObjectTail(ostream* file) = 0;
 		friend class Page;
 		
-		virtual ~StreamHead(){};
 		StreamEncodeProvider* provider;
+        
+        virtual ~StreamHead();
     };
 }
 

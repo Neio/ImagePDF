@@ -126,14 +126,14 @@ namespace PDF{
 		>>
 		endobj
 		*/
-		int pagesId = _address->size();
+		int pagesId = (int)_address->size();
 		long long pagesLocation = f.tellp();
 		_address->push_back(pagesLocation);
 		f<<pagesId<<" 0 obj"<<endl;
 		f<<"<< /Type /Pages"<<endl;
 		f<<"   /Kids[";
 		//pages
-		int pageCount = _pages->size();
+		int pageCount = (int)_pages->size();
 		for(int i = 0; i < pageCount ; i++)
 		{
 			f<<(i + pagesId + 1)<<" 0 R"<<endl;
@@ -146,7 +146,7 @@ namespace PDF{
 		for(vector<Page*>::iterator i = this->_pages->begin();
 			i != _pages->end();
 			i++){
-				int currentPageId = _address->size();
+				int currentPageId = (int)_address->size();
 				long long pageLocation = f.tellp();
 				_address->push_back(pageLocation);
 				f<<currentPageId<<" 0 obj"<<endl<<"<< /Type /Page"<<endl;
@@ -198,7 +198,7 @@ namespace PDF{
 		>>
 		endobj
 		*/
-		int catId = _address->size();
+		int catId = (int)_address->size();
 		long long catLocation = f.tellp();
 		_address->push_back(catLocation);
 		f<<catId<<" 0 obj"<<endl;

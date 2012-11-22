@@ -58,14 +58,14 @@ namespace PDF
 				int ImageHeight,
 			ColorSpace colorspace, int BitPerComponent);
 		
-		virtual int getResourceId();
+		virtual size_t getResourceId();
 		virtual string getName();
 
 	protected:
 		~ImageHead();
 		virtual void WriteContent(ostream* file);
-		virtual void WriteXObjectHead(int objectId, ostream* file);
-		virtual int WriteXObjectTail(ostream* file);
+		virtual void WriteXObjectHead(size_t objectId, ostream* file);
+		virtual size_t WriteXObjectTail(ostream* file);
 
 		friend class Page;
 
@@ -81,7 +81,7 @@ namespace PDF
 		
 		int bit;
 
-		int id;
+		size_t id;
 		long long streamStart;
 
 		int nameId;

@@ -38,7 +38,10 @@ namespace PDF
 		virtual void WriteData(unsigned char* data, unsigned long length) = 0;
         virtual void End() = 0;
         
-        //virtual ~StreamEncodeProvider();
+        
+        
+        virtual ~StreamEncodeProvider();
+        
 
 	protected:
         

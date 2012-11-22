@@ -98,7 +98,7 @@ void Page::End(){
 	long long sizecount = (long long)f.tellp() - sizecountStart;
 	f<<"endstream"<<endl<<"endobj"<<endl;
 
-	int sizeId = doc->_address->size();
+	size_t sizeId = doc->_address->size();
 	doc->_address->push_back(f.tellp());
 	f<<sizeId<<" 0 obj"<<endl<<sizecount<<endl<<"endobj"<<endl;
     //}
@@ -118,7 +118,7 @@ int Page::getWidth(){
 int Page::getHeight(){
 	return this->_height;
 }
-int Page::getContentId(){
+size_t Page::getContentId(){
 	return _pageContentId;
 }
 vector<StreamHead*>* Page::getResources(){
@@ -138,7 +138,7 @@ Stream* Page::NewStream(StreamHead* header,
 	header->provider = Provider;
 	currentStream = new Stream(this, Provider);
 	currentStreamHead = header;
-	int objectId = doc->_address->size();
+	size_t objectId = doc->_address->size();
 	doc->_address->push_back(doc->_file->tellp());
 	header->WriteXObjectHead(objectId, doc->_file);
 
