@@ -31,8 +31,7 @@ using PDF;
 Document doc("example.pdf");
 
 
-//start a new page
-
+//Page 1
 Page* page = doc.NewPage();  //new page 
 page->setHeight(800);	//Set page height
 page->setWidth(600);	//Set page width
@@ -59,12 +58,12 @@ stream->Write(data1, length1);
 stream->Write(data2, length2);
 
 
-//new page 
+//Page 2
 page = doc.NewPage();
 page->setHeight(800);
 page->setWidth(600);
 
-//page blank
+//leave page blank
 
 
 //write pages/catalog information, xref, trailer
