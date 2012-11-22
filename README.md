@@ -26,45 +26,47 @@ Usage:
 using PDF;
 
 ```C++
-//create a new pdf file and write a header
 
+//create a new pdf file and write a header
 Document doc("example.pdf");
 
 
 //start a new page
 
-//new page should be start after previous one closed ( End() called )
-
+//new page 
 Page* page = doc.StartPage();
 
 
 //insert an image to current page
 
 //not implement it
-
 //int id = page->Write(new ImageObject());
 
-//insert an stream
 
-StreamHead sHead = new ImageHead();
-StreamEncodeProvider encoder = new FlateEncoder();
+//insert an image stream
+Stream* stream =page->StartStream(
+		new ImageHead(	10,  //Target X
+						10,  //Target Y
+						400, //Target Width
+						100, //Target Height
+						40,	 //Image Width
+						10,	 //Image Height
+						PDF::DeviceRGB, //Color
+						8),  //Bit per component
+		new FlateEncoder()); //use Flate/zlib compression
 
-Stream* stream = page->StartStream(sHead, encoder);
-
+//write image content
 stream->Write(data1, length1);
 stream->Write(data2, length2);
 
-stream->End();
 
+//new page 
+Page* page2 = doc.StartPage();
 
-//finish one page
-page->End();
 
 
 //write pages/catalog information, xref, trailer
-
 //then close the file
-
 doc.Close();
 
 ```

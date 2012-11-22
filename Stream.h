@@ -40,7 +40,7 @@ namespace PDF
     public:
 
 
-        void WriteData(char* data, int length);
+        void WriteData(unsigned char* data, unsigned long length);
         
         void End();
     

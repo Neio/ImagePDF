@@ -34,7 +34,7 @@ void DCTEncoder::Begin()
 }
 
 
-void DCTEncoder::WriteData(char* data, int length)
+void DCTEncoder::WriteData(unsigned  char* data, unsigned long length)
 {
 	//write data
 

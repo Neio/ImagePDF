@@ -49,6 +49,6 @@ void Stream::End(){
 	//this->page = NULL; //because this class has been deleted
 }
 
-void Stream::WriteData(char* data, int length){
+void Stream::WriteData(unsigned  char* data, unsigned long length){
 	encoder->WriteData(data,length);
 }

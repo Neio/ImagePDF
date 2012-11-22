@@ -34,7 +34,7 @@ namespace PDF
 		void setOstream(ostream* stream);
         virtual string getName() = 0;
 		virtual void Begin() = 0;
-		virtual void WriteData(char* data, int length) = 0;
+		virtual void WriteData(unsigned char* data, unsigned long length) = 0;
         virtual void End() = 0;
 	protected:
 		ostream* output;

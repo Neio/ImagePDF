@@ -25,8 +25,8 @@ int _tmain(int argc, _TCHAR* argv[])
     page->setWidth(600);
 
 	//sample data
-	const int size = 40 * 10 * 3;
-	char data[size];
+	const unsigned long size = 40 * 10 * 3;
+	unsigned char data[size];
     memset(data, 0x01 ,size * sizeof(char));
 
 	Stream* s =  page->StartStream(

@@ -92,7 +92,7 @@ void FlateEncoder::Begin(){
 }
 
 
-void FlateEncoder::WriteData(char* data, int length){
+void FlateEncoder::WriteData(unsigned  char* data, unsigned long length){
 	//write data
 	//for(int i = 0; i< length; i++){
 	//	short d = (short)data[i] & 0xFF;

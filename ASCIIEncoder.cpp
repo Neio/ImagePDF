@@ -39,7 +39,7 @@ void ASCIIEncoder::Begin(){
 }
 
 
-void ASCIIEncoder::WriteData(char* data, int length){
+void ASCIIEncoder::WriteData(unsigned  char* data, unsigned long length){
 	//write data
 	for(int i = 0; i< length; i++){
 		short d = (short)data[i] & 0xFF;
