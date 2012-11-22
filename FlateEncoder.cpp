@@ -24,6 +24,7 @@
 
  //   #include "zlib/zipstream.hpp"
     #include "zlib/zlib.h"
+//#include "zlib/zconf.h"
 
 
 
@@ -32,43 +33,50 @@
 using namespace PDF;
 using namespace std;
 
-#define BUF_SIZE 65535
-Bytef zdata[BUF_SIZE];
-uLong nzdata = BUF_SIZE;
-Bytef  odata[BUF_SIZE];
-uLong nodata = BUF_SIZE;
 
-int gzcompress(Bytef *data, uLong ndata, 
-	Bytef *zdata, uLong *nzdata)
+int compress2(unsigned char* data, unsigned  long sizeDataOriginal,
+	unsigned char* target, unsigned long* actLength)
 {
-	z_stream c_stream;
-	int err = 0;
+	// So, we'll just play it safe and alloated 1.1x
+    // as much memory + 12 bytes (110% original + 12 bytes)
 
-	if(data && ndata > 0)
-	{
-		c_stream.zalloc = (alloc_func)0;
-		c_stream.zfree = (free_func)0;
-		c_stream.opaque = (voidpf)0;
-		if(deflateInit2(&c_stream, Z_DEFAULT_COMPRESSION, Z_DEFLATED, 
-                    -MAX_WBITS, 8, Z_DEFAULT_STRATEGY) != Z_OK) return -1;
-		c_stream.next_in  = data;
-		c_stream.avail_in  = ndata;
-		c_stream.next_out = zdata;
-		c_stream.avail_out  = *nzdata;
-		while (c_stream.avail_in != 0 && c_stream.total_out < *nzdata) 
-		{
-			if(deflate(&c_stream, Z_NO_FLUSH) != Z_OK) return -1;
-		}
-        if(c_stream.avail_in != 0) return c_stream.avail_in;
-		for (;;) {
-			if((err = deflate(&c_stream, Z_FINISH)) == Z_STREAM_END) break;
-			if(err != Z_OK) return -1;
-		}
-		if(deflateEnd(&c_stream) != Z_OK) return -1;
-		*nzdata = c_stream.total_out;
-		return 0;
-	}
-	return -1;
+
+	 int z_result = compress(
+        
+        target,         // destination buffer,
+                                // must be at least
+                                // (1.01X + 12) bytes as large
+                                // as source.. we made it 1.1X + 12bytes
+
+        actLength,    // pointer to var containing
+                                // the current size of the
+                                // destination buffer.
+                                // WHEN this function completes,
+                                // this var will be updated to
+                                // contain the NEW size of the
+                                // compressed data in bytes.
+
+        data,           // source data for compression
+        
+        sizeDataOriginal ) ;    // size of source data in bytes
+
+    switch( z_result )
+    {
+    case Z_OK:
+        printf("***** SUCCESS! *****\n");
+        break;
+
+    case Z_MEM_ERROR:
+        printf("out of memory\n");
+        break;
+
+    case Z_BUF_ERROR:
+        printf("output buffer wasn't large enough!\n");
+        break;
+    }
+
+	return z_result;
+
 }
 
 
@@ -93,10 +101,21 @@ void FlateEncoder::WriteData(char* data, int length){
 	//(*this->output)<<dec;
 	//this->output->write(data, length);
 	//zipper->write(data, length);
-	//if(gzcompress((Bytef *)data, length, zdata, &nzdata) == 0)
-	//{
-	//	this->output->write((char*)zdata, nzdata);
-	//}
+
+	
+    unsigned long sizeDataCompressed  = (length * 1.1) + 12;
+    unsigned char * dataCompressed = (unsigned char*)malloc( sizeDataCompressed );
+
+	if(compress2((unsigned char*)data, length, dataCompressed, &sizeDataCompressed) == 0)
+	{
+		this->output->write((char*)dataCompressed, sizeDataCompressed);
+		free(dataCompressed);
+	}
+	else
+	{
+		//throw gzcompress not success
+		throw new exception("zlib compress not success");
+	}
 }
 
 

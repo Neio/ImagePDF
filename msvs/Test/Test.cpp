@@ -41,13 +41,13 @@ int _tmain(int argc, _TCHAR* argv[])
 
     s =  page->StartStream(
 		new ImageHead(10,10,400,100, 40,10, PDF::DeviceRGB,8), 
-		new ASCIIEncoder());
+		new FlateEncoder());
    
 	s->WriteData(data, size);
 
 	s =page->StartStream(
 		new ImageHead(10,200,400,100, 40,10, PDF::DeviceRGB,8), 
-		new ASCIIEncoder());
+		new FlateEncoder());
    
 	s->WriteData(data, size);
 
