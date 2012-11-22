@@ -21,7 +21,7 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
-#include "zlib/zlib.h"
+#include "lib/zlib.h"
 
 
 
