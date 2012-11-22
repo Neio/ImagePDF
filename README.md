@@ -33,9 +33,9 @@ Document doc("example.pdf");
 
 //start a new page
 
-//new page 
-Page* page = doc.StartPage();
-
+Page* page = doc.NewPage();  //new page 
+page->setHeight(800);	//Set page height
+page->setWidth(600);	//Set page width
 
 //insert an image to current page
 
@@ -44,7 +44,7 @@ Page* page = doc.StartPage();
 
 
 //insert an image stream
-Stream* stream =page->StartStream(
+Stream* stream =page->NewStream(
 		new ImageHead(	10,  //Target X
 						10,  //Target Y
 						400, //Target Width

@@ -20,7 +20,7 @@ int _tmain(int argc, _TCHAR* argv[])
     
     string filename = "test.pdf";
     Document doc(filename);
-	Page* page = doc.StartPage();
+	Page* page = doc.NewPage();
     page->setHeight(800);
     page->setWidth(600);
 
@@ -29,24 +29,23 @@ int _tmain(int argc, _TCHAR* argv[])
 	unsigned char data[size];
     memset(data, 0x01 ,size * sizeof(char));
 
-	Stream* s =  page->StartStream(
+	Stream* s =  page->NewStream(
 		new ImageHead(10,10,200,50, 40,10, PDF::DeviceRGB,8), 
 		new ASCIIEncoder());
    
 	s->WriteData(data, size);
 
-	page = doc.StartPage();
+	page = doc.NewPage();
     page->setHeight(800);
     page->setWidth(600);
 
-    s =  page->StartStream(
-		new ImageHead(10,10,400,100, 40,10, PDF::DeviceRGB,8), 
+    s =  page->NewStream(
+		new ImageHead(10,10,300,100, 40,10, PDF::DeviceRGB,8), 
 		new FlateEncoder());
-   
 	s->WriteData(data, size);
 
-	s =page->StartStream(
-		new ImageHead(10,200,400,100, 40,10, PDF::DeviceRGB,8), 
+	s =page->NewStream(
+		new ImageHead(10,100,400,100, 40,10, PDF::DeviceRGB,8), 
 		new FlateEncoder());
    
 	s->WriteData(data, size);

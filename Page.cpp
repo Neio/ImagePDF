@@ -125,7 +125,7 @@ vector<StreamHead*>* Page::getResources(){
 	return heads;
 }
 
-Stream* Page::StartStream(StreamHead* header,
+Stream* Page::NewStream(StreamHead* header,
 	StreamEncodeProvider* Provider){
 
 		//close previous stream if not closed

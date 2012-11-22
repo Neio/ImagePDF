@@ -40,7 +40,7 @@ public:
     
 public:
     //start a new page for operation
-    Page* StartPage();
+    Page* NewPage();
     
     //get current operating page
     Page* getCurrentPage();

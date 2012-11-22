@@ -274,7 +274,7 @@ namespace PDF{
 
 
 
-	Page* Document::StartPage(){
+	Page* Document::NewPage(){
 
 		if(this->_currentPage != NULL)
 		{
