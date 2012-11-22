@@ -7,6 +7,7 @@
 #include "..\..\FlateEncoder.h"
 #include "..\..\StreamEncodeProvider.h"
 #include "..\..\StreamHead.h"
+#include "..\..\ASCIIEncoder.h"
 #include <iostream>
 #include <string>
 
@@ -30,7 +31,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	Stream* s =  page->StartStream(
 		new ImageHead(10,10,200,50, 40,10, PDF::DeviceRGB,8), 
-		new FlateEncoder());
+		new ASCIIEncoder());
    
 	s->WriteData(data, size);
 
@@ -40,13 +41,13 @@ int _tmain(int argc, _TCHAR* argv[])
 
     s =  page->StartStream(
 		new ImageHead(10,10,400,100, 40,10, PDF::DeviceRGB,8), 
-		new FlateEncoder());
+		new ASCIIEncoder());
    
 	s->WriteData(data, size);
 
 	s =page->StartStream(
 		new ImageHead(10,200,400,100, 40,10, PDF::DeviceRGB,8), 
-		new FlateEncoder());
+		new ASCIIEncoder());
    
 	s->WriteData(data, size);
 

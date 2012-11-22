@@ -73,7 +73,7 @@ int gzcompress(Bytef *data, uLong ndata,
 
 
 string FlateEncoder::getName(){
-	return "ASCIIHexDecode";
+	return "FlateDecode";
 }
 
 //zip_ostream* zipper;
@@ -86,10 +86,10 @@ void FlateEncoder::Begin(){
 
 void FlateEncoder::WriteData(char* data, int length){
 	//write data
-	for(int i = 0; i< length; i++){
-		short d = (short)data[i] & 0xFF;
-		(*this->output)<<setfill('0') <<setw(2)<<hex<<d;
-	}
+	//for(int i = 0; i< length; i++){
+	//	short d = (short)data[i] & 0xFF;
+	//	(*this->output)<<setfill('0') <<setw(2)<<hex<<d;
+	//}
 	//(*this->output)<<dec;
 	//this->output->write(data, length);
 	//zipper->write(data, length);
@@ -102,7 +102,7 @@ void FlateEncoder::WriteData(char* data, int length){
 
 void FlateEncoder::End(){
 	//clean up
-	(*this->output)<<dec;
+	//(*this->output)<<dec;
 	//zipper->zflush();
 	//delete zipper;
 	//zipper = NULL;

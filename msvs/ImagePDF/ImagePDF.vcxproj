@@ -76,6 +76,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\ASCIIEncoder.cpp" />
     <ClCompile Include="..\..\Document.cpp" />
     <ClCompile Include="..\..\FlateEncoder.cpp" />
     <ClCompile Include="..\..\ImageFile.cpp" />
@@ -86,6 +87,7 @@
     <ClCompile Include="..\..\StreamEncodeProvider.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\ASCIIEncoder.h" />
     <ClInclude Include="..\..\Document.h" />
     <ClInclude Include="..\..\FlateEncoder.h" />
     <ClInclude Include="..\..\ImageFile.h" />
