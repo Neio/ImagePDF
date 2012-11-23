@@ -24,7 +24,8 @@
 #include <iostream>
 #include "StreamEncodeProvider.h"
 #include <string>
-#include "lib/jpeglib.h"
+#include "jpeglib.h"
+
 
 using namespace std;
 

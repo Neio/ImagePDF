@@ -24,10 +24,8 @@
 #include <iostream>
 #include "StreamEncodeProvider.h"
 #include <string>
-#include "lib/zlib.h"
+#include "zlib.h"
 using namespace std;
-
-
 
 namespace PDF
 {

@@ -21,7 +21,7 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
-#include "lib/zlib.h"
+#include "zlib.h"
 
 //#pragma comment(lib,"lib/zlib.lib")
 

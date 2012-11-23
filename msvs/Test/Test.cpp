@@ -54,11 +54,12 @@ double noise(double x,double y)
 
 void RenderCloud(unsigned char* data, int w, int h)
 {
-	int octaves=2;
-	int p =2; //persistent
+	int octaves=3;
+	int p =1; //persistent
 	int zoom = 75;
 	for(int y=0;y<h;y++)
-	{//Loops to loop trough all the pixels
+	{
+		//Loops to loop trough all the pixels
 		for(int x=0;x<w;x++)
 		{
 			double getnoise =0;
@@ -134,7 +135,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	//example using JPEG/DCT encoding
 	s =page->NewStream(
 		new ImageHead(0,400,400,400, w,h, PDF::DeviceRGB,8), 
-		new DCTEncoder(w,h, 90, 3, PDF::DCT_RGB));
+		new DCTEncoder(w,h, 10, 3, PDF::DCT_RGB));
    
 	//s->WriteData(data, size);
 
@@ -159,10 +160,29 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		s->WriteData(data + i, piece);	//write image data
 	}
+
+
 	//Create a new blank page
 	page = doc.NewPage();
     page->setHeight(800);
     page->setWidth(600);
+
+
+	const unsigned long jpegPiece = 40;
+	for(unsigned long i = 0; i < jpegPiece; i++){
+		s =page->NewStream(
+			new ImageHead(0, 800-(800/jpegPiece)*(i+1),
+				600,(800/jpegPiece), 
+				w,
+				h/jpegPiece, 
+				PDF::DeviceRGB,8), 
+			new DCTEncoder(w,h/jpegPiece, 60, 3, PDF::DCT_RGB));
+   
+		//s->WriteData(data, size);
+
+		s->WriteData(data + i*(size/jpegPiece), size/jpegPiece);
+
+	}
 
 	//Close document
 	doc.Close();

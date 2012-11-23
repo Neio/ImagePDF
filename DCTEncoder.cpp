@@ -18,7 +18,7 @@
    limitations under the License.
 */
 #include "DCTEncoder.h"
-#include "lib/jpeglib.h"
+#include "jpeglib.h"
 
 using namespace PDF;
 using namespace std;
