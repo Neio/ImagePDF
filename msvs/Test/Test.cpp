@@ -30,8 +30,8 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	//Create a new page
 	Page* page = doc.NewPage();
-    page->setHeight(800);
-    page->setWidth(600);
+    page->setHeight(800);	//Set page height
+    page->setWidth(600);	//Set page width
 
 	
 	//example using ASCII encoding
@@ -57,7 +57,7 @@ int _tmain(int argc, _TCHAR* argv[])
 				, PDF::DeviceRGB	//Color
 				,8),			//Bit per component
 		new FlateEncoder(9));	 //use Flate/zlib compression
-	s->WriteData(data, size/3);
+	s->WriteData(data, size/3);	//write image data
 	s->WriteData(data + size/3, size/3);
 	s->WriteData(data + size/3 + size/3, size/3);
 
