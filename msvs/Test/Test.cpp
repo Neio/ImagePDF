@@ -94,10 +94,10 @@ int _tmain(int argc, _TCHAR* argv[])
     
 	//random sample data
 	srand ( time(NULL) );
-	const unsigned long w = 200;
-	const unsigned long h = 200;
+	const unsigned long w = 600;
+	const unsigned long h = 800;
 	const unsigned long size = w * h * 3;
-	unsigned char data[size];
+	unsigned char* data = new unsigned char[size];
 	for(unsigned long i = 0; i<size; i++)
 	{
 	//	data[i] = rand() % 255;
@@ -166,7 +166,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	//Close document
 	doc.Close();
-
+	delete[] data;
 
     std::cout << "Output finished!\n";
 	

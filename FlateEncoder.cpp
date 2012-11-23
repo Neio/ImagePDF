@@ -61,16 +61,20 @@ void FlateEncoder::WriteData(unsigned  char* data, unsigned long length){
 	//write data
 	strm.avail_in = (unsigned int)length;
 	strm.next_in = data;
-	strm.avail_out = CHUNK;
-    strm.next_out = out;
 
-	int ret = deflate(&strm, Z_NO_FLUSH);    /* no bad return value */
-    if(ret == Z_STREAM_ERROR)
-	{
-		throw new exception();
-	}
-	have = CHUNK - strm.avail_out;
-	this->output->write((char*)out, have);
+	do {
+		strm.avail_out = CHUNK;
+		strm.next_out = out;
+
+		int ret = deflate(&strm, Z_NO_FLUSH);    /* no bad return value */
+		if(ret == Z_STREAM_ERROR)
+		{
+			throw new exception();
+		}
+		have = CHUNK - strm.avail_out;
+		if(have >0)
+			this->output->write((char*)out, have);
+	 } while (strm.avail_out == 0);
 	
     /*unsigned long sizeDataCompressed  = (length * 1.1) + 12;
     unsigned char * dataCompressed = (unsigned char*)malloc( sizeDataCompressed );
@@ -95,16 +99,22 @@ void FlateEncoder::End(){
 	unsigned char empty[1];
 	strm.avail_in = 0;
 	strm.next_in = empty;
-	strm.avail_out = CHUNK;
-    strm.next_out = out;
 
-	int ret = deflate(&strm, Z_FINISH );    /* no bad return value */
-    if(ret == Z_STREAM_ERROR)
-	{
-		throw new exception();
-	}
-	have = CHUNK - strm.avail_out;
-	this->output->write((char*)out, have);
+	do {
+		strm.avail_out = CHUNK;
+		strm.next_out = out;
+
+		int ret = deflate(&strm, Z_FINISH);    /* no bad return value */
+		if(ret == Z_STREAM_ERROR)
+		{
+			throw new exception();
+		}
+		have = CHUNK - strm.avail_out;
+		if(have >0)
+			this->output->write((char*)out, have);
+	 } while (strm.avail_out == 0);
+
+
 
 
 	deflateEnd(&strm);
