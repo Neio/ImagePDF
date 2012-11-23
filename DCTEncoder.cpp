@@ -94,10 +94,14 @@ void DCTEncoder::WriteData(unsigned  char* data, unsigned long length)
 	JSAMPROW row_pointer;
 
 	//write data one line by one line
-	while (cinfo.next_scanline < cinfo.image_height) { 		
-		row_pointer = (JSAMPROW) &data[cinfo.next_scanline * components];
-		jpeg_write_scanlines(&cinfo, &row_pointer, 1);
+	unsigned long height = length / components/image_width;
+	
+	for(unsigned long i =0 ; i< height; i++)
+	{
+		row_pointer = (JSAMPROW) &data[i* components*image_width];
+		jpeg_write_scanlines(&cinfo, &row_pointer,1);
 	}
+	
 
 	
 

@@ -3,7 +3,9 @@
 
 #include "stdafx.h"
 #include "..\..\imagepdf.h"
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 using namespace std;
 using namespace PDF;
@@ -19,13 +21,17 @@ int _tmain(int argc, _TCHAR* argv[])
     page->setWidth(600);
 
 	//sample data
-	const unsigned long size = 40 * 10 * 3;
+	 srand ( time(NULL) );
+	const unsigned long size = 80 * 20 * 3;
 	unsigned char data[size];
-    memset(data, 0x01 ,size * sizeof(char));
+	for(unsigned long i = 0; i<size; i++)
+	{
+		data[i] = rand() % 255;
+	}
 
 	//example using ASCII encoding
 	Stream* s =  page->NewStream(
-		new ImageHead(10,10,200,50, 40,10, PDF::DeviceRGB,8), 
+		new ImageHead(0,0,600,800, 40,40, PDF::DeviceRGB,8), 
 		new ASCIIEncoder());
 	s->WriteData(data, size);
 
@@ -37,21 +43,24 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	//example using Flate/zlib encoding
     s =  page->NewStream(
-		new ImageHead(10,10,300,100, 40,10, PDF::DeviceRGB,8), 
+		new ImageHead(10,10,400,100, 80,20, PDF::DeviceRGB,8), 
 		new FlateEncoder(9));
 	s->WriteData(data, size/3);
-	s->WriteData(data, size/3);
-	s->WriteData(data, size/3);
+	s->WriteData(data + size/3, size/3);
+	s->WriteData(data + size/3 + size/3, size/3);
 
 
 	//example using JPEG/DCT encoding
 	s =page->NewStream(
-		new ImageHead(10,100,400,100, 40,10, PDF::DeviceRGB,8), 
-		new DCTEncoder(40,10, 10, 3, PDF::DCT_RGB));
+		new ImageHead(10,100,400,100, 80,20, PDF::DeviceRGB,8), 
+		new DCTEncoder(80,20, 90, 3, PDF::DCT_RGB));
    
+	//s->WriteData(data, size);
+
 	s->WriteData(data, size/2);
-	s->WriteData(data, size/2);
-	
+	s->WriteData(data + size/2, size/2);
+
+
 	page = doc.NewPage();
     page->setHeight(800);
     page->setWidth(600);
