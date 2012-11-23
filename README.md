@@ -27,48 +27,73 @@ using PDF;
 
 ```C++
 
-//create a new pdf file and write a header
-Document doc("example.pdf");
+//random sample data
+	srand ( time(NULL) );
+	const unsigned long size = 80 * 20 * 3;
+	unsigned char data[size];
+	for(unsigned long i = 0; i<size; i++)
+	{
+		data[i] = rand() % 255;
+	}
 
 
-//Page 1
-Page* page = doc.NewPage();  //new page 
-page->setHeight(800);	//Set page height
-page->setWidth(600);	//Set page width
+	//Create a PDF document
+    string filename = "test.pdf";
+    Document doc(filename);
 
-//insert an image to current page
-//not-implemented
-//int id = page->Write(new ImageObject());
+	//Create a new page
+	Page* page = doc.NewPage();
+    page->setHeight(800);	//Set page height
+    page->setWidth(600);	//Set page width
 
-
-//insert an image stream
-Stream* stream =page->NewStream(
-		new ImageHead(	10,  //Target X
-						10,  //Target Y
-						400, //Target Width
-						100, //Target Height
-						40,	 //Image Width
-						10,	 //Image Height
-						PDF::DeviceRGB, //Color
-						8),  //Bit per component
-		new FlateEncoder()); //use Flate/zlib compression
-
-//write image content
-stream->Write(data1, length1);
-stream->Write(data2, length2);
+	
+	//example using ASCII encoding
+	Stream* s =  page->NewStream(
+		new ImageHead(0,0,600,800, 40,40, PDF::DeviceRGB,8), 
+		new ASCIIEncoder());
+	s->WriteData(data, size);
 
 
-//Page 2
-page = doc.NewPage();
-page->setHeight(800);
-page->setWidth(600);
+	//start a new page
+	page = doc.NewPage();
+    page->setHeight(800);
+    page->setWidth(600);
 
-//leave page blank
+	//example using Flate/zlib encoding
+    s =  page->NewStream(
+		new ImageHead(10  //Target X
+				,10		  //Target Y
+				,400		//Target Width
+				,100		//Target Height
+				, 80		//Image Width
+				, 20		//Image Height
+				, PDF::DeviceRGB	//Color
+				,8),			//Bit per component
+		new FlateEncoder(9));	 //use Flate/zlib compression
+	s->WriteData(data, size/3);	//write image data
+	s->WriteData(data + size/3, size/3);
+	s->WriteData(data + size/3 + size/3, size/3);
 
 
-//write pages/catalog information, xref, trailer
-//then close the file
-doc.Close();
+	//example using JPEG/DCT encoding
+	s =page->NewStream(
+		new ImageHead(10,100,400,100, 80,20, PDF::DeviceRGB,8), 
+		new DCTEncoder(80,20, 90, 3, PDF::DCT_RGB));
+   
+	//s->WriteData(data, size);
+
+	s->WriteData(data, size/2);
+	s->WriteData(data + size/2, size/2);
+
+	//Create a new blank page
+	page = doc.NewPage();
+    page->setHeight(800);
+    page->setWidth(600);
+
+	//Close document
+	doc.Close();
+
+
 
 ```
 
