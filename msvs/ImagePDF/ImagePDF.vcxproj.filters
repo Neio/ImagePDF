@@ -74,10 +74,243 @@
     <ClInclude Include="..\..\ASCIIEncoder.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\imagepdf.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\README.md">
       <Filter>Source Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="..\..\lib\objs\adler32.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\cdjpeg.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\compress.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\crc32.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\deflate.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\gzclose.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\gzlib.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\gzread.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\gzwrite.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\infback.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\inffast.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\inflate.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\inftrees.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jaricom.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jcapimin.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jcapistd.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jcarith.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jccoefct.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jccolor.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jcdctmgr.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jchuff.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jcinit.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jcmainct.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jcmarker.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jcmaster.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jcomapi.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jcparam.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jcprepct.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jcsample.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jctrans.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jdapimin.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jdapistd.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jdarith.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jdatadst.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jdatasrc.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jdcoefct.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jdcolor.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jddctmgr.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jdhuff.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jdinput.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jdmainct.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jdmarker.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jdmaster.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jdmerge.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jdpostct.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jdsample.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jdtrans.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jerror.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jfdctflt.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jfdctfst.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jfdctint.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jidctflt.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jidctfst.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jidctint.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jmemmgr.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jmemnobs.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jquant1.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jquant2.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\jutils.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\rdbmp.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\rdcolmap.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\rdgif.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\rdppm.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\rdrle.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\rdswitch.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\rdtarga.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\transupp.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\trees.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\uncompr.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\wrbmp.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\wrgif.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\wrjpgcom.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\wrppm.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\wrrle.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\wrtarga.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\..\lib\objs\zutil.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
   </ItemGroup>
 </Project>

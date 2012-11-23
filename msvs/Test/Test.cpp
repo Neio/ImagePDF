@@ -2,14 +2,8 @@
 //
 
 #include "stdafx.h"
-#include "..\..\ImageHead.h"
-#include "..\..\Document.h"
-#include "..\..\FlateEncoder.h"
-#include "..\..\StreamEncodeProvider.h"
-#include "..\..\StreamHead.h"
-#include "..\..\ASCIIEncoder.h"
-#include <iostream>
-#include <string>
+#include "..\..\imagepdf.h"
+
 
 using namespace std;
 using namespace PDF;

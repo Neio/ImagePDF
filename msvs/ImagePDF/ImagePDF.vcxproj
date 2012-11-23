@@ -24,8 +24,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -37,7 +37,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)\..\..\binary\win32\</OutDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -57,10 +59,10 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
+      <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -69,8 +71,9 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>zlib.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\Neio\Desktop\Neio\Projects\ImagePDF\lib;..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <Lib />
     <ProjectReference />
@@ -96,6 +99,7 @@
     <ClInclude Include="..\..\ImageFile.h" />
     <ClInclude Include="..\..\ImageHead.h" />
     <ClInclude Include="..\..\DCTEncoder.h" />
+    <ClInclude Include="..\..\imagepdf.h" />
     <ClInclude Include="..\..\Page.h" />
     <ClInclude Include="..\..\Stream.h" />
     <ClInclude Include="..\..\StreamEncodeProvider.h" />
@@ -103,6 +107,84 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="..\..\lib\objs\adler32.obj" />
+    <Object Include="..\..\lib\objs\cdjpeg.obj" />
+    <Object Include="..\..\lib\objs\compress.obj" />
+    <Object Include="..\..\lib\objs\crc32.obj" />
+    <Object Include="..\..\lib\objs\deflate.obj" />
+    <Object Include="..\..\lib\objs\gzclose.obj" />
+    <Object Include="..\..\lib\objs\gzlib.obj" />
+    <Object Include="..\..\lib\objs\gzread.obj" />
+    <Object Include="..\..\lib\objs\gzwrite.obj" />
+    <Object Include="..\..\lib\objs\infback.obj" />
+    <Object Include="..\..\lib\objs\inffast.obj" />
+    <Object Include="..\..\lib\objs\inflate.obj" />
+    <Object Include="..\..\lib\objs\inftrees.obj" />
+    <Object Include="..\..\lib\objs\jaricom.obj" />
+    <Object Include="..\..\lib\objs\jcapimin.obj" />
+    <Object Include="..\..\lib\objs\jcapistd.obj" />
+    <Object Include="..\..\lib\objs\jcarith.obj" />
+    <Object Include="..\..\lib\objs\jccoefct.obj" />
+    <Object Include="..\..\lib\objs\jccolor.obj" />
+    <Object Include="..\..\lib\objs\jcdctmgr.obj" />
+    <Object Include="..\..\lib\objs\jchuff.obj" />
+    <Object Include="..\..\lib\objs\jcinit.obj" />
+    <Object Include="..\..\lib\objs\jcmainct.obj" />
+    <Object Include="..\..\lib\objs\jcmarker.obj" />
+    <Object Include="..\..\lib\objs\jcmaster.obj" />
+    <Object Include="..\..\lib\objs\jcomapi.obj" />
+    <Object Include="..\..\lib\objs\jcparam.obj" />
+    <Object Include="..\..\lib\objs\jcprepct.obj" />
+    <Object Include="..\..\lib\objs\jcsample.obj" />
+    <Object Include="..\..\lib\objs\jctrans.obj" />
+    <Object Include="..\..\lib\objs\jdapimin.obj" />
+    <Object Include="..\..\lib\objs\jdapistd.obj" />
+    <Object Include="..\..\lib\objs\jdarith.obj" />
+    <Object Include="..\..\lib\objs\jdatadst.obj" />
+    <Object Include="..\..\lib\objs\jdatasrc.obj" />
+    <Object Include="..\..\lib\objs\jdcoefct.obj" />
+    <Object Include="..\..\lib\objs\jdcolor.obj" />
+    <Object Include="..\..\lib\objs\jddctmgr.obj" />
+    <Object Include="..\..\lib\objs\jdhuff.obj" />
+    <Object Include="..\..\lib\objs\jdinput.obj" />
+    <Object Include="..\..\lib\objs\jdmainct.obj" />
+    <Object Include="..\..\lib\objs\jdmarker.obj" />
+    <Object Include="..\..\lib\objs\jdmaster.obj" />
+    <Object Include="..\..\lib\objs\jdmerge.obj" />
+    <Object Include="..\..\lib\objs\jdpostct.obj" />
+    <Object Include="..\..\lib\objs\jdsample.obj" />
+    <Object Include="..\..\lib\objs\jdtrans.obj" />
+    <Object Include="..\..\lib\objs\jerror.obj" />
+    <Object Include="..\..\lib\objs\jfdctflt.obj" />
+    <Object Include="..\..\lib\objs\jfdctfst.obj" />
+    <Object Include="..\..\lib\objs\jfdctint.obj" />
+    <Object Include="..\..\lib\objs\jidctflt.obj" />
+    <Object Include="..\..\lib\objs\jidctfst.obj" />
+    <Object Include="..\..\lib\objs\jidctint.obj" />
+    <Object Include="..\..\lib\objs\jmemmgr.obj" />
+    <Object Include="..\..\lib\objs\jmemnobs.obj" />
+    <Object Include="..\..\lib\objs\jquant1.obj" />
+    <Object Include="..\..\lib\objs\jquant2.obj" />
+    <Object Include="..\..\lib\objs\jutils.obj" />
+    <Object Include="..\..\lib\objs\rdbmp.obj" />
+    <Object Include="..\..\lib\objs\rdcolmap.obj" />
+    <Object Include="..\..\lib\objs\rdgif.obj" />
+    <Object Include="..\..\lib\objs\rdppm.obj" />
+    <Object Include="..\..\lib\objs\rdrle.obj" />
+    <Object Include="..\..\lib\objs\rdswitch.obj" />
+    <Object Include="..\..\lib\objs\rdtarga.obj" />
+    <Object Include="..\..\lib\objs\transupp.obj" />
+    <Object Include="..\..\lib\objs\trees.obj" />
+    <Object Include="..\..\lib\objs\uncompr.obj" />
+    <Object Include="..\..\lib\objs\wrbmp.obj" />
+    <Object Include="..\..\lib\objs\wrgif.obj" />
+    <Object Include="..\..\lib\objs\wrjpgcom.obj" />
+    <Object Include="..\..\lib\objs\wrppm.obj" />
+    <Object Include="..\..\lib\objs\wrrle.obj" />
+    <Object Include="..\..\lib\objs\wrtarga.obj" />
+    <Object Include="..\..\lib\objs\zutil.obj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
