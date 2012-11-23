@@ -23,7 +23,7 @@
 #include <iomanip>
 #include "lib/zlib.h"
 
-
+//#pragma comment(lib,"lib/zlib.lib")
 
 
 using namespace PDF;
@@ -59,7 +59,7 @@ void FlateEncoder::Begin(){
 
 void FlateEncoder::WriteData(unsigned  char* data, unsigned long length){
 	//write data
-	strm.avail_in = (uint)length;
+	strm.avail_in = (unsigned int)length;
 	strm.next_in = data;
 	strm.avail_out = CHUNK;
     strm.next_out = out;

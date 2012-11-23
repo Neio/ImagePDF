@@ -41,7 +41,7 @@ namespace PDF
     private:
         jpeg_compress_struct cinfo;
         jpeg_error_mgr jerr;
-        peg_destination_mgr dmgr;
+        jpeg_destination_mgr dmgr;
         int quality;
         int image_width;
         int image_height;

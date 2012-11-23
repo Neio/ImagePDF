@@ -27,6 +27,8 @@
 #include "lib/zlib.h"
 using namespace std;
 
+
+
 namespace PDF
 {
 	#define CHUNK 16384

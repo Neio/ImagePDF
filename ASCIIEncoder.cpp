@@ -41,7 +41,7 @@ void ASCIIEncoder::Begin(){
 
 void ASCIIEncoder::WriteData(unsigned  char* data, unsigned long length){
 	//write data
-	for(int i = 0; i< length; i++){
+	for(unsigned long i = 0; i< length; i++){
 		short d = (short)data[i] & 0xFF;
 		(*this->output)<<setfill('0') <<setw(2)<<hex<<d;
 	}

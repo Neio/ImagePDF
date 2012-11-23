@@ -61,6 +61,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -69,10 +70,13 @@
     </Link>
     <Lib>
       <AdditionalDependencies>zlib.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Neio\Desktop\Neio\Projects\ImagePDF\lib;..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
-    <Lib>
-      <AdditionalLibraryDirectories>..\..\zlib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Lib>
+    <Lib />
+    <ProjectReference />
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\ASCIIEncoder.cpp" />
