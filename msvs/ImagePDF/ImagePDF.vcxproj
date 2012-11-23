@@ -80,6 +80,16 @@
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>copy $(SolutionDir)\..\..\*.h $(SolutionDir)\..\..\binary\win32\</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy header</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\ASCIIEncoder.cpp" />
