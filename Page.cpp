@@ -155,7 +155,7 @@ void Page::closeStream(){
 		currentStream = NULL;
 	}
 
-	long newid = currentStreamHead->WriteXObjectTail(doc->_file);
+	long long newid = currentStreamHead->WriteXObjectTail(doc->_file);
 	doc->_address->push_back(newid);
 	
 	currentStreamHead = NULL;

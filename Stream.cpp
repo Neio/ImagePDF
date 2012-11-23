@@ -49,6 +49,11 @@ void Stream::End(){
 	//this->page = NULL; //because this class has been deleted
 }
 
+/*
+Write a block of data
+If you are using DCTEncoder, please input data with the length 
+which is exactly the whole lines
+*/
 void Stream::WriteData(unsigned  char* data, unsigned long length){
 	encoder->WriteData(data,length);
 }

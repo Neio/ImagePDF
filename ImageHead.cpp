@@ -135,7 +135,7 @@ void ImageHead::WriteXObjectHead(size_t objectId, ostream* file){
 	//f<<"endobj"<<endl;
 }
 
-size_t ImageHead::WriteXObjectTail(ostream* file){
+long long ImageHead::WriteXObjectTail(ostream* file){
 
 	ostream& f = *(file);
 
@@ -143,7 +143,7 @@ size_t ImageHead::WriteXObjectTail(ostream* file){
 	f<<endl<<"endstream"<<endl;
 	f<<"endobj"<<endl;
 
-	size_t newid = f.tellp();
+	long long newid = f.tellp();
 
 	f<<(id+1)<<" 0 obj"<<endl;
 	f<<size<<endl;

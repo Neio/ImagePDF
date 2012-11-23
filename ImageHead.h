@@ -65,7 +65,7 @@ namespace PDF
 		~ImageHead();
 		virtual void WriteContent(ostream* file);
 		virtual void WriteXObjectHead(size_t objectId, ostream* file);
-		virtual size_t WriteXObjectTail(ostream* file);
+		virtual long long WriteXObjectTail(ostream* file);
 
 		friend class Page;
 

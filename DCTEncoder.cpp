@@ -23,6 +23,16 @@
 using namespace PDF;
 using namespace std;
 
+DCTEncoder::DCTEncoder(int ImageWidth, int ImageHeight, int Quality, int Components, DCT_COLOR_SPACE ColorSpace)
+{
+	this->image_width = ImageWidth;
+	this->image_height = ImageHeight;
+	this->quality = Quality;
+	this->components = Components;
+	this->colorSpace = DCT_RGB;
+}
+
+
 string DCTEncoder::getName()
 {
 	return "DCTDecode";
@@ -47,14 +57,15 @@ void DCTEncoder::Begin()
 	//prepare space & file
     
     /* create our in-memory output buffer to hold the jpeg */
-	JOCTET * out_buffer   = new JOCTET[image_width * image_height *3];
+	out_buffer  = new JOCTET[image_width * image_height * components];
     
 	/* here is the magic */
 	dmgr.init_destination    = init_buffer;
 	dmgr.empty_output_buffer = empty_buffer;
 	dmgr.term_destination    = term_buffer;
+
 	dmgr.next_output_byte    = out_buffer;
-	dmgr.free_in_buffer      = image_width * image_height *3;
+	dmgr.free_in_buffer      = image_width * image_height * components;
     
 	cinfo.err = jpeg_std_error(&jerr);
 	jpeg_create_compress(&cinfo);
@@ -64,14 +75,13 @@ void DCTEncoder::Begin()
     
 	cinfo.image_width      = image_width;
 	cinfo.image_height     = image_height;
-	cinfo.input_components = 3;
-	cinfo.in_color_space   = JCS_RGB;
+	cinfo.input_components = components;
+	cinfo.in_color_space   = (J_COLOR_SPACE)colorSpace;
     
 	jpeg_set_defaults(&cinfo);
-	jpeg_set_quality (&cinfo, 75, true);
+	jpeg_set_quality (&cinfo, quality, true);
 	jpeg_start_compress(&cinfo, true);
     
-	JSAMPROW row_pointer;
     
     
 	//uint8_t *buffer    = (uint8_t*) image->pixels;
@@ -81,30 +91,37 @@ void DCTEncoder::Begin()
 
 void DCTEncoder::WriteData(unsigned  char* data, unsigned long length)
 {
-	//write data
-  
-    /*
-    jpeg_write_scanlines(&cinfo, data, 1);
-     
-     while (cinfo.next_scanline < cinfo.image_height) {
-     row_pointer = (JSAMPROW) &buffer[cinfo.next_scanline * image->pitch];
-     jpeg_write_scanlines(&cinfo, &row_pointer, 1);
-     }
-  */
+	JSAMPROW row_pointer;
+
+	//write data one line by one line
+	while (cinfo.next_scanline < cinfo.image_height) { 		
+		row_pointer = (JSAMPROW) &data[cinfo.next_scanline * components];
+		jpeg_write_scanlines(&cinfo, &row_pointer, 1);
+	}
+
+	
+
+
 
 }
 
 
 void DCTEncoder::End()
 {
-	//clean up
-    
+
+	//finish compression
     jpeg_finish_compress(&cinfo);
-    //fclose(outfile);
-    
-    //jpeg_destroy_compress(&cinfo);
-    
+
+	
     //save to file
+	int length = cinfo.dest->next_output_byte - out_buffer;
+	this->output->write((char*)out_buffer,length);
+
+	//clean up
+
+    jpeg_destroy_compress(&cinfo);
+    
+	delete[] out_buffer;
     
 
 }

@@ -39,7 +39,7 @@ namespace PDF
 	protected:
 		virtual void WriteContent(ostream* file) = 0; 
 		virtual void WriteXObjectHead(size_t objectId, ostream* file) = 0;
-		virtual size_t WriteXObjectTail(ostream* file) = 0;
+		virtual long long WriteXObjectTail(ostream* file) = 0;
 		friend class Page;
 		
 		StreamEncodeProvider* provider;
